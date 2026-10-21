@@ -1,0 +1,12 @@
+《戀愛大作戰：心動日記》開始遊玩
+
+1. 先將 ZIP 解壓縮。
+2. 開啟解壓後的 love-strategy-heartbeat-diary 資料夾。
+3. 要在 GitHub Pages 上線，請把資料夾內的 index.html、style.css、game.js、README.md、.nojekyll，以及整個 assets 資料夾上傳到 GitHub Repository 的根目錄。
+4. 在 GitHub Repository → Settings → Pages → Deploy from a branch，選 main 和 /(root)，再按 Save。
+5. 等 GitHub Pages 發布完成後，開啟它提供的網站網址。
+
+注意：不要只上傳 ZIP 壓縮檔；請先解壓縮，再上傳裡面的檔案及 assets 資料夾。
+
+
+更新版圖片說明：此版本已恢復最初三位女主角的原始造型。上傳時請覆蓋同名 index.html、style.css、game.js 和 assets 裡的原始肖像檔；若 GitHub 裡已有舊版新增的 cover-heroines.jpg、art-hina-*.jpg、art-mio-sunset.jpg 等檔案，它們已不再被程式引用，可以刪除但不影響遊戲。
