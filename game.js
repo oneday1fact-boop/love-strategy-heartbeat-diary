@@ -534,7 +534,18 @@
     const lines = scene.lines || [];
     const line = lines[scene.index] || { speaker: '旁白', text: '' };
     const girl = scene.girlId ? GIRLS[scene.girlId] : null;
-    const art = scene.art ? (scene.art.startsWith('./') ? scene.art : ASSET(scene.art)) : (girl ? girl.art : ASSET('cover-school.jpg'));
+    // A missing scene image must never fall back to a tall character portrait as a full-screen CG.
+    // Use a wide landscape scene for each heroine; the portrait is only used in the small nameplate.
+    const defaultSceneArt = girl
+      ? ({ hina: 'hina-campus-cg.jpg', mio: 'mio-library-cg.jpg', koharu: 'koharu-scene.jpg' }[girl.id] || 'cover-school.jpg')
+      : 'cover-school.jpg';
+    const requestedArt = scene.art || defaultSceneArt;
+    const normalizedArt = ({
+      'hina-portrait.jpg': 'hina-campus-cg.jpg',
+      'hina-scene.jpg': 'hina-campus-cg.jpg',
+      'mio-portrait.jpg': 'mio-library-cg.jpg'
+    })[requestedArt] || requestedArt;
+    const art = normalizedArt.startsWith('./') ? normalizedArt : ASSET(normalizedArt);
     const isLastLine = scene.index === lines.length - 1;
     const showChoices = isLastLine && !scene.typing && Array.isArray(scene.choices) && scene.choices.length > 0 && !scene.resolved;
     const showClose = isLastLine && !scene.typing && !showChoices;
@@ -588,6 +599,8 @@
 
     // The scene shell stays mounted. Only text, image URL and visible controls update in place.
     const artElement = card.querySelector('[data-story-art]');
+    const artWrap = card.querySelector('[data-story-art-wrap]');
+    if (artWrap) artWrap.style.setProperty('--scene-blur-image', `url("${art.replace(/["\\]/g, '\\$&')}")`);
     if (artElement && artElement.getAttribute('src') !== art) artElement.setAttribute('src', art);
     if (artElement) {
       artElement.alt = `${girl ? girl.name : '青空學園'} 劇情插畫`;
@@ -838,7 +851,7 @@
     };
     const lines = scripts[id][count % scripts[id].length].map(([speaker, text]) => ({ speaker, text }));
     showScene({
-      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, art: id === 'hina' ? 'hina-campus-cg.jpg' : id === 'mio' ? (count % 2 ? 'mio-library-cg.jpg' : 'mio-scene.jpg') : (count % 2 ? 'koharu-portrait.jpg' : 'koharu-scene.jpg'), lines,
+      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, art: id === 'hina' ? (count % 2 ? 'hina-campus-cg.jpg' : 'hina-court-cg.jpg') : id === 'mio' ? (count % 2 ? 'mio-library-cg.jpg' : 'mio-scene.jpg') : 'koharu-scene.jpg', lines,
       choices: chatChoices(id),
       onChoice: (choice) => {
         state.girls[id].chats += 1;
@@ -968,7 +981,7 @@ ${girl.short}很享受這段時間。只要是一起度過的普通日子，也�
     const girl = GIRLS[id];
     if (state.day < 15 || state.girls[id].affinity < 70) { showToast('先多一點相處與回憶吧。建議第 15 天後、好感度 70 以上再考慮告白。'); return; }
     showScene({
-      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: (id === 'hina' ? ASSET('hina-sunset-cg.jpg') : id === 'mio' ? ASSET('mio-scene.jpg') : ASSET('koharu-scene.jpg')),
+      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: (id === 'hina' ? ASSET('hina-sunset-cg.jpg') : id === 'mio' ? ASSET('mio-library-cg.jpg') : ASSET('koharu-scene.jpg')),
       lines: [
         { speaker: '旁白', text: `黃昏的校園漸漸安靜。你和${girl.short}並肩站在熟悉的地方，最近累積的每一段回憶都浮上心頭。` },
         { speaker: girl.short, text: id === 'hina' ? '「我想知道……對你來說，我是不是也有一點特別？」' : id === 'mio' ? '「如果我說，最近最期待的事情是見到你……你會怎樣回答？」' : '「我畫了很多風景，但每一次回看，總覺得少了你就不完整。」' },
