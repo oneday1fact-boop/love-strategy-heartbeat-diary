@@ -4,6 +4,7 @@
   const SAVE_KEY = 'loveStrategyHeartbeatDiary_v1';
   const app = document.getElementById('app');
   const modalRoot = document.getElementById('modal-root');
+  const storyRoot = document.getElementById('story-root');
   const toastRoot = document.getElementById('toast-root');
   const PHASE_NAMES = ['早晨', '午休', '放學後'];
   const ASSET = (name) => `./assets/${name}`;
@@ -49,7 +50,7 @@
 
   const MILESTONES = {
     hina: [
-      { key: 'hina_practice', min: 18, day: 2, title: '放學後的最後一球', art: 'scene-gym.jpg', lines: [
+      { key: 'hina_practice', min: 18, day: 2, title: '放學後的最後一球', art: 'hina-court-cg.jpg', lines: [
         ['旁白', '體育館的窗邊染上金色。其他隊員都走了，只有陽菜還抱著球，站在罰球線前。'],
         ['陽菜', '「再投一球就走！」她說得很有精神，卻悄悄揉了揉有點酸的手腕。'],
         ['陽菜', '「……你可以幫我數球嗎？只要你在旁邊，我就覺得一定能投進。」']
@@ -57,7 +58,7 @@
         { label: '認真替她數球，陪她練到最後', effect: () => changeAffinity('hina', 5), outcome: '陽菜投進最後一球，開心地向你擊掌。她把這份一起努力的回憶收在心裡。' },
         { label: '提醒她休息，明天再繼續', effect: () => { changeAffinity('hina', 4); adjustStat('charm', 1); }, outcome: '陽菜先是愣了一下，之後才笑著點頭。「你有時比教練還嚴格呢。」' }
       ] },
-      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'scene-gym.jpg', lines: [
+      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'hina-scene.jpg', lines: [
         ['旁白', '練習賽結束後，陽菜坐在空蕩蕩的看台上。她沒有像平常一樣大聲說笑。'],
         ['陽菜', '「我明明練了那麼久，最後還是失誤了。大家都說沒關係，但我自己好不甘心。」'],
         ['陽菜', '她低下頭：「如果有一天我真的做不到，你還會覺得我很厲害嗎？」']
@@ -65,7 +66,7 @@
         { label: '「我欣賞的是努力的你，不只是得分。」', effect: () => { changeAffinity('hina', 6); adjustStat('courage', 1); }, outcome: '陽菜沉默了一會，眼角微微泛紅。然後她抬起頭，露出比平常更真誠的笑容。' },
         { label: '邀請她明天一起重新練習', effect: () => { changeAffinity('hina', 5); adjustStat('fitness', 1); }, outcome: '「好！明天一定要把那球投進！」陽菜重新站起來，這次她不再是一個人。' }
       ] },
-      { key: 'hina_festival', min: 55, day: 14, title: '夕陽下的加油聲', art: 'scene-sunset.jpg', lines: [
+      { key: 'hina_festival', min: 55, day: 14, title: '夕陽下的加油聲', art: 'hina-sunset-cg.jpg', lines: [
         ['旁白', '夏季比賽前一天，陽菜約你到球場旁的走廊。夕陽把兩人的影子拉得很長。'],
         ['陽菜', '「我其實有點緊張。明明一直說自己沒問題，但今天特別想聽你說一句加油。」'],
         ['陽菜', '她把一瓶運動飲品遞給你：「比賽完……我有件事想好好跟你說。」']
@@ -73,7 +74,7 @@
         { label: '約定比賽結束後一起看夕陽', effect: () => { changeAffinity('hina', 7); adjustStat('courage', 2); }, outcome: '陽菜用力點頭，耳尖卻悄悄紅了。這個約定，比任何得分都更令她期待。' },
         { label: '輕輕替她打氣，讓她做自己', effect: () => changeAffinity('hina', 6), outcome: '「嗯，我會努力享受比賽的。」她把你的話牢牢記住，轉身時一直帶著笑。' }
       ] },
-      { key: 'hina_confession', min: 75, day: 20, title: '只想讓你知道', art: 'scene-sunset.jpg', lines: [
+      { key: 'hina_confession', min: 75, day: 20, title: '只想讓你知道', art: 'classroom-morning-cg.jpg', lines: [
         ['陽菜', '「比起站在球場正中央，我發現自己最近更期待放學後見到你。」'],
         ['陽菜', '她把目光移向窗外：「我未必已經準備好說出所有答案，但我想讓你知道，你對我真的很重要。」']
       ], choices: [
@@ -82,7 +83,7 @@
       ] }
     ],
     mio: [
-      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'scene-library.jpg', lines: [
+      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'mio-scene.jpg', lines: [
         ['旁白', '清晨的體育館還沒開足燈，澪已經完成了一輪發球練習。她看到你時，手上的球拍停了一下。'],
         ['澪', '「你真的來了。我以為昨天只是隨口一提……謝謝。」'],
         ['澪', '她把備用球拍遞給你：「要不要試一下？我可以慢慢教你。」']
@@ -90,7 +91,7 @@
         { label: '認真學她示範的動作', effect: () => { changeAffinity('mio', 5); adjustStat('fitness', 1); }, outcome: '澪仔細替你調整握拍姿勢。她話不多，但每一次提醒都很溫柔。' },
         { label: '先問她自己最喜歡哪個動作', effect: () => { changeAffinity('mio', 4); adjustStat('charm', 1); }, outcome: '澪難得主動示範了好幾次。她似乎很高興，你在意的不只是一場比賽。' }
       ] },
-      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'scene-library.jpg', lines: [
+      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'mio-library-cg.jpg', lines: [
         ['旁白', '圖書館午後很安靜。澪把一本筆記推到你面前，頁邊整齊地寫滿了重點。'],
         ['澪', '「我習慣把想不通的事情寫下來。可是有些事……寫了很多遍，還是沒有答案。」'],
         ['澪', '她小聲補充：「例如，為什麼我每次看到你走進來，都會先抬頭。」']
@@ -98,7 +99,7 @@
         { label: '笑著說，因為她一直在等你', effect: () => { changeAffinity('mio', 6); adjustStat('courage', 1); }, outcome: '澪的臉一下子紅了。她低頭翻頁，卻把那一頁看了好久都沒有翻過去。' },
         { label: '告訴她，你也會留意她在不在', effect: () => { changeAffinity('mio', 6); adjustStat('charm', 1); }, outcome: '澪輕輕點頭，唇邊露出幾乎看不見、卻很真實的微笑。' }
       ] },
-      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'scene-sunset.jpg', lines: [
+      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-scene.jpg', lines: [
         ['旁白', '放學時突然下起雨。澪撐開一把透明雨傘，站在校門口等你。'],
         ['澪', '「天氣預報說會下雨。我想……你可能沒有帶傘。」'],
         ['澪', '兩人肩膀靠得很近。她望著雨滴，輕聲說：「和你一起走的路，好像總是比平常短。」']
@@ -106,7 +107,7 @@
         { label: '把傘柄握得更穩，陪她慢慢走', effect: () => { changeAffinity('mio', 7); adjustStat('courage', 1); }, outcome: '澪沒有退開。回到家後，你收到她的訊息：「今天的雨聲很好聽。謝謝你一起走。」' },
         { label: '問她夏日祭典想看哪一種煙花', effect: () => changeAffinity('mio', 6), outcome: '澪想了一會，說自己想看藍色的煙花。說完後，她小聲問你那天有沒有空。' }
       ] },
-      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'scene-sunset.jpg', lines: [
+      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-portrait.jpg', lines: [
         ['澪', '「以前我覺得，只要把事情做好，就不需要向別人說太多。」'],
         ['澪', '「可是最近，我會想把看到的天空、聽到的歌，還有每天很普通的小事，第一個告訴你。」']
       ], choices: [
@@ -115,7 +116,7 @@
       ] }
     ],
     koharu: [
-      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'scene-classroom.jpg', lines: [
+      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'koharu-scene.jpg', lines: [
         ['旁白', '美術室裡只剩下畫筆碰到紙面的細聲。小春急忙把畫簿合上，像是被你看見了秘密。'],
         ['小春', '「啊……不是不想給你看，只是還沒有畫好。」'],
         ['小春', '她想了一會，終於把畫簿轉向你：「如果你願意的話，可以先看一小部分。」']
@@ -123,7 +124,7 @@
         { label: '仔細看畫，說出你最喜歡的細節', effect: () => { changeAffinity('koharu', 5); adjustStat('charm', 1); }, outcome: '小春聽得很專注。你指出的一個小細節，正好是她最在意、卻以為不會有人留意的地方。' },
         { label: '問她畫這幅畫時在想甚麼', effect: () => { changeAffinity('koharu', 5); adjustStat('courage', 1); }, outcome: '小春慢慢說起畫中的故事。她發現，你想了解的不只是完成的作品，還有她的心情。' }
       ] },
-      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'scene-campus.jpg', lines: [
+      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'koharu-portrait.jpg', lines: [
         ['旁白', '小春邀請你到校園後方找繪畫素材。她一直望著天空，卻遲遲沒有落筆。'],
         ['小春', '「我總覺得，如果畫得不夠好，就不應該讓別人看見。」'],
         ['小春', '「但每次跟你一起找風景時，我都會想……也許不完美的東西，也值得被喜歡。」']
@@ -131,7 +132,7 @@
         { label: '告訴她，你最喜歡畫裡真實的心情', effect: () => { changeAffinity('koharu', 6); adjustStat('charm', 1); }, outcome: '小春終於開始畫下第一筆。她把這張畫命名為「有人一起看的天空」。' },
         { label: '提議兩個人一起完成這張畫', effect: () => { changeAffinity('koharu', 6); adjustStat('courage', 1); }, outcome: '小春把另一支鉛筆遞給你。兩種筆觸在紙上交會，意外地成為她最喜歡的一部分。' }
       ] },
-      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'scene-sunset.jpg', lines: [
+      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'koharu-scene.jpg', lines: [
         ['旁白', '祭典前夕，小春把一幅用淡藍和粉橙色描繪的夕陽交給你。畫裡有一個模糊的身影，正站在她旁邊。'],
         ['小春', '「我本來想畫得很像，但畫到最後，最清楚的反而是那天的感覺。」'],
         ['小春', '「如果你不介意……我想把這幅畫送給你。」']
@@ -139,7 +140,7 @@
         { label: '珍惜地收下，答應會一直保存', effect: () => { changeAffinity('koharu', 7); adjustStat('courage', 1); }, outcome: '小春的笑容像畫裡的夕陽一樣柔和。她說，祭典當天還有一件事想讓你知道。' },
         { label: '邀請她一起去看真正的夕陽', effect: () => changeAffinity('koharu', 6), outcome: '小春輕輕點頭，已經開始想像那天要帶哪一本畫簿。' }
       ] },
-      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'scene-sunset.jpg', lines: [
+      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-portrait.jpg', lines: [
         ['小春', '「我重新翻看最近畫的每一張畫，才發現你總是在某個角落。」'],
         ['小春', '「我想，這大概就是喜歡一個人的樣子吧。無論在甚麼地方，都會不自覺想起他。」']
       ], choices: [
@@ -148,6 +149,14 @@
       ] }
     ]
   };
+
+  // Preload all in-game CGs. Fixed geometry + cached images prevents layout jumps on scene changes.
+  const PRELOAD_ASSETS = [
+    'cover-school.jpg','hina-portrait.jpg','hina-scene.jpg','hina-court-cg.jpg','hina-campus-cg.jpg','hina-sunset-cg.jpg',
+    'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','koharu-portrait.jpg','koharu-scene.jpg','classroom-morning-cg.jpg','classroom-window-cg.jpg'
+  ];
+  const preloadCache = new Map();
+  PRELOAD_ASSETS.forEach((name) => { const image = new Image(); image.decoding = 'async'; image.src = ASSET(name); preloadCache.set(name, image); });
 
   let state = null;
   let activeScene = null;
@@ -306,7 +315,7 @@
         <section class="title-section">
           <div class="section-heading"><div><span class="eyebrow">MEET THE HEROINES</span><h2>每一次相遇，都值得被記住。</h2></div><p>點選角色，先認識她們的故事。</p></div>
           <div class="heroines-preview">
-            ${Object.values(GIRLS).map((girl) => `<article class="heroine-card" data-action="title-heroine" data-girl="${girl.id}" role="button" tabindex="0"><div class="portrait"><img src="${girl.art}" alt="${girl.name} 原創 Anime 角色插畫"></div><div class="card-copy"><h3>${girl.name}</h3><div class="role">${girl.role}</div><p>${girl.intro}</p><span class="card-line">查看人物故事 <b>↗</b></span></div></article>`).join('')}
+            ${Object.values(GIRLS).map((girl) => `<article class="heroine-card" data-action="title-heroine" data-girl="${girl.id}" role="button" tabindex="0"><div class="portrait" style="--portrait-bg:url('${girl.art}')"><img src="${girl.art}" alt="${girl.name} 原創 Anime 角色插畫"></div><div class="card-copy"><h3>${girl.name}</h3><div class="role">${girl.role}</div><p>${girl.intro}</p><span class="card-line">查看人物故事 <b>↗</b></span></div></article>`).join('')}
           </div>
           <div class="feature-row">
             <article class="feature-tile"><div class="feature-icon">♡</div><h3>戀愛養成</h3><p>對話、送禮與約會，累積真正的信任。</p></article>
@@ -430,7 +439,7 @@
       <div class="content-panel">
         <div class="profile-intro"><img src="${selected.art}" alt="${selected.name} 原創角色插畫"><div><span class="eyebrow">${selected.age} YEARS OLD · ${selected.role.split('・')[0]}</span><h2>${selected.name}</h2><div class="role">${selected.role}</div><p>${selected.intro}</p><blockquote>「${escapeHtml(selected.quote)}」</blockquote><div class="chip-row">${selected.tags.map((tag) => `<span class="pill">${tag}</span>`).join('')}</div><div class="profile-values"><div class="value-tile"><strong>♡ ${aff} / 100</strong><small>目前好感度 · ${relationshipStage(aff)}</small></div><div class="value-tile"><strong>🎁 ${escapeHtml(selected.favorite)}</strong><small>她可能喜歡的禮物</small></div></div><div class="character-buttons"><button class="btn btn-primary" data-action="start-chat" data-girl="${selected.id}">💬 聊聊天</button><button class="btn btn-pink" data-action="give-gift" data-girl="${selected.id}">🎁 送禮物</button><button class="btn btn-soft" data-action="start-date" data-girl="${selected.id}">🌷 邀請約會</button><button class="btn btn-soft" data-action="confess" data-girl="${selected.id}" ${aff < 70 || state.day < 15 ? 'disabled' : ''}>💌 挑戰告白</button></div><p class="small-note">告白提示：建議好感度達 80 以上，並完成更多專屬事件，會更容易迎來好結局。</p></div></div>
         <div class="divider"></div><div class="section-heading"><div><span class="eyebrow">CHOOSE A ROUTE</span><h2>選擇想多了解的她</h2></div><p>選擇角色後，上方檔案會更新。</p></div>
-        <div class="characters-grid">${Object.values(GIRLS).map((girl) => `<article class="character-large"><div class="character-art"><img src="${girl.art}" alt="${girl.name} 插畫"><span class="aff-badge">♡ ${state.girls[girl.id].affinity}/100</span></div><div class="character-info"><h3>${girl.name}</h3><span class="role">${girl.role}</span><p>${girl.intro}</p><div class="chip-row">${girl.tags.map((tag) => `<span class="pill">${tag}</span>`).join('')}</div><div class="character-buttons"><button class="btn btn-primary" data-action="select-girl" data-girl="${girl.id}">查看檔案</button><button class="btn btn-soft" data-action="start-chat" data-girl="${girl.id}">開始聊天</button></div></div></article>`).join('')}</div>
+        <div class="characters-grid">${Object.values(GIRLS).map((girl) => `<article class="character-large" data-girl="${girl.id}"><div class="character-art" style="--portrait-bg:url('${girl.art}')"><img src="${girl.art}" alt="${girl.name} 插畫"><span class="aff-badge">♡ ${state.girls[girl.id].affinity}/100</span></div><div class="character-info"><h3>${girl.name}</h3><span class="role">${girl.role}</span><p>${girl.intro}</p><div class="chip-row">${girl.tags.map((tag) => `<span class="pill">${tag}</span>`).join('')}</div><div class="character-buttons"><button class="btn btn-primary" data-action="select-girl" data-girl="${girl.id}">查看檔案</button><button class="btn btn-soft" data-action="start-chat" data-girl="${girl.id}">開始聊天</button></div></div></article>`).join('')}</div>
       </div>`;
   }
 
@@ -451,8 +460,15 @@
 
   function renderGallery(stage) {
     stage.innerHTML = `
-      <div class="page-heading"><div><span class="eyebrow">ILLUSTRATION & ENDINGS</span><h1>回憶圖鑑</h1><p>收集遇見、約會、心動與成長的片段。結局會在你完成旅程後解鎖。</p></div><span class="pill">🖼️ ${state.unlockedEndings.length} / 7 結局</span></div>
-      <div class="content-panel"><h2 style="margin:0 0 7px;font-size:17px">青空學園・視覺概念集</h2><p style="margin:0 0 14px;color:var(--muted);font-size:11px;line-height:1.8">遊戲美術概念與校園戀愛氣氛板。實際互動介面由前端程式生成。</p><img class="gallery-board" src="${ASSET('art-gallery.jpg')}" alt="原創日系校園戀愛遊戲視覺概念拼圖"><div class="divider"></div><div class="section-heading"><div><span class="eyebrow">ENDING COLLECTION</span><h2>結局收藏</h2></div><p>達成條件後，這裡會記錄已解鎖結局。</p></div><div class="ending-grid">${Object.entries(ENDINGS).map(([id, ending]) => { const unlocked = state.unlockedEndings.includes(id); return `<article class="ending-card ${unlocked ? 'unlocked' : ''}"><strong>${unlocked ? '✦ ' : '🔒 '}${unlocked ? ending.title : '未解鎖的回憶'}</strong><small>${unlocked ? `${ending.type}<br>${ending.desc}` : ending.desc.slice(0, 42) + '……'}</small></article>`; }).join('')}</div></div>`;
+      <div class="page-heading"><div><span class="eyebrow">ILLUSTRATION & ENDINGS</span><h1>回憶圖鑑</h1><p>收藏三位女主角的原始造型、表情與故事片段。結局會在你完成旅程後解鎖。</p></div><span class="pill">🖼️ ${state.unlockedEndings.length} / 7 結局</span></div>
+      <div class="content-panel"><div class="section-heading"><div><span class="eyebrow">ORIGINAL HEROINES</span><h2>女主角・心動瞬間</h2></div><p>保留最初角色設計，畫面只調整裁切與展示比例。</p></div><div class="illustration-gallery">
+        <article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('hina-portrait.jpg')}')"><img src="${ASSET('hina-portrait.jpg')}" alt="朝霧陽菜・原始角色立繪" loading="lazy"></div><div class="art-caption"><strong>朝霧陽菜・球場上的太陽</strong><span>開朗的籃球部少女，總是努力把笑容留給大家。</span></div></article>
+        <article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('mio-portrait.jpg')}')"><img src="${ASSET('mio-portrait.jpg')}" alt="水瀨澪・原始角色立繪" loading="lazy"></div><div class="art-caption"><strong>水瀨澪・安靜的心意</strong><span>慢熱而細心，常在安靜時刻說出最真誠的話。</span></div></article>
+        <article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('koharu-portrait.jpg')}')"><img src="${ASSET('koharu-portrait.jpg')}" alt="藤宮小春・原始角色立繪" loading="lazy"></div><div class="art-caption"><strong>藤宮小春・把天空畫下來</strong><span>溫柔的美術少女，想把珍惜的風景分享給你。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('hina-scene.jpg')}')"><img src="${ASSET('hina-scene.jpg')}" alt="陽菜的原始體育館插畫裁圖" loading="lazy"></div><div class="art-caption"><strong>放學後的最後一球</strong><span>一同練習的時光，慢慢成為只屬於你們的回憶。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('mio-scene.jpg')}')"><img src="${ASSET('mio-scene.jpg')}" alt="澪的原始圖書館插畫裁圖" loading="lazy"></div><div class="art-caption"><strong>圖書館靠窗的午後</strong><span>不需要急著說話，也能感受到彼此的陪伴。</span></div></article>
+        <article class="illustration-card"><div class="art-frame portrait-frame koharu-close-frame" style="--art-bg:url('${ASSET('koharu-scene.jpg')}')"><img src="${ASSET('koharu-scene.jpg')}" alt="小春的原始立繪近景裁圖" loading="lazy"></div><div class="art-caption"><strong>美術室的秘密</strong><span>把日常一點一滴畫下來，也把在意的人放進畫裡。</span></div></article>
+      </div><div class="divider"></div><div class="section-heading"><div><span class="eyebrow">ENDING COLLECTION</span><h2>結局收藏</h2></div><p>達成條件後，這裡會記錄已解鎖結局。</p></div><div class="ending-grid">${Object.entries(ENDINGS).map(([id, ending]) => { const unlocked = state.unlockedEndings.includes(id); return `<article class="ending-card ${unlocked ? 'unlocked' : ''}"><strong>${unlocked ? '✦ ' : '🔒 '}${unlocked ? ending.title : '未解鎖的回憶'}</strong><small>${unlocked ? `${ending.type}<br>${ending.desc}` : ending.desc.slice(0, 42) + '……'}</small></article>`; }).join('')}</div></div>`;
   }
 
   function renderSettings(stage) {
@@ -498,9 +514,10 @@
 
   function scheduleSceneAutoAdvance() {
     const scene = activeScene;
-    if (!scene || !state?.settings?.autoPlay || scene.typing || scene.resolved) return;
+    if (!scene) return;
+    if (scene.autoTimer) { clearTimeout(scene.autoTimer); scene.autoTimer = null; }
+    if (!state?.settings?.autoPlay || scene.typing || scene.resolved) return;
     if (scene.index >= scene.lines.length - 1) return; // pause at choices and at the end of a passage
-    if (scene.autoTimer) clearTimeout(scene.autoTimer);
     scene.autoTimer = setTimeout(() => {
       if (activeScene !== scene || scene.typing || scene.resolved) return;
       if (scene.index < scene.lines.length - 1) {
@@ -511,7 +528,8 @@
   }
 
   function renderSceneModal() {
-    if (!activeScene) { modalRoot.innerHTML = ''; return; }
+    if (!activeScene) { storyRoot.hidden = true; return; }
+    storyRoot.hidden = false;
     const scene = activeScene;
     const lines = scene.lines || [];
     const line = lines[scene.index] || { speaker: '旁白', text: '' };
@@ -521,12 +539,87 @@
     const showChoices = isLastLine && !scene.typing && Array.isArray(scene.choices) && scene.choices.length > 0 && !scene.resolved;
     const showClose = isLastLine && !scene.typing && !showChoices;
     const displayedText = scene.visibleText === undefined ? (line.text || '') : scene.visibleText;
-    modalRoot.innerHTML = `
-      <div class="modal-backdrop" role="presentation"><section class="modal-card" role="dialog" aria-modal="true" aria-label="${escapeHtml(scene.title || '劇情事件')}"><button class="modal-close" data-action="scene-close" aria-label="關閉">×</button>
-        <div class="story-scene"><div class="story-art"><img src="${art}" alt="${escapeHtml(girl ? girl.name : '校園場景')} 插畫" onerror="this.style.display='none'"><span class="story-stamp">${girl ? `♡ ${girl.short} 的故事` : '青空學園・心動日記'}</span></div><div class="story-content"><div class="story-topline"><span>${escapeHtml(scene.kicker || 'HEARTBEAT STORY')}</span><span>${String(scene.index + 1).padStart(2,'0')} / ${String(lines.length).padStart(2,'0')}</span></div><h2>${escapeHtml(scene.title || '青春日常')}</h2><div class="dialogue-box"><div class="dialogue-speaker">${escapeHtml(line.speaker || '旁白')}</div><p class="dialogue-text">${escapeHtml(displayedText)}</p></div><div class="story-dots">${lines.map((_, i) => `<span class="story-dot ${i === scene.index ? 'active' : ''}"></span>`).join('')}</div>
-          ${showChoices ? `<div class="story-choices">${scene.choices.map((choice, index) => { const disabled = typeof choice.canChoose === 'function' ? !choice.canChoose() : !!choice.disabled; return `<button class="story-choice" data-action="scene-choice" data-index="${index}" ${disabled ? 'disabled' : ''}><span>${escapeHtml(choice.label)}</span><span>↗</span></button>`; }).join('')}</div>` : ''}
-          <div class="story-footer"><small>${scene.typing ? '文字顯示中……' : (state?.settings?.autoPlay ? '自動播放已開啟 · 出現選項時會暫停' : '每個選擇，都有機會改變你們的距離。')}</small><div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap"><button class="btn btn-soft btn-small" data-action="toggle-story-auto">${state?.settings?.autoPlay ? 'AUTO ✓' : 'AUTO'}</button>${scene.typing ? `<button class="btn btn-primary btn-small" data-action="scene-next">顯示全文　→</button>` : scene.index < lines.length - 1 ? `<button class="btn btn-primary btn-small" data-action="scene-next">繼續閱讀　→</button>` : showClose ? `<button class="btn btn-primary btn-small" data-action="scene-close">${escapeHtml(scene.closeLabel || '收進日記')}　♡</button>` : ''}</div></div>
-        </div></div></section></div>`;
+
+    let card = storyRoot.querySelector('[data-story-modal]');
+    if (!card) {
+      storyRoot.innerHTML = `
+        <div class="modal-backdrop story-backdrop" role="presentation">
+          <section class="story-modal" data-story-modal role="dialog" aria-modal="true" aria-label="劇情事件">
+            <div class="story-scene">
+              <div class="story-art" data-story-art-wrap>
+                <img data-story-art src="${escapeHtml(art)}" alt="故事場景" decoding="async" fetchpriority="high" onerror="this.onerror=null;this.src='./assets/cover-school.jpg'">
+                <div class="story-art-shade" aria-hidden="true"></div>
+              </div>
+              <div class="story-logo" aria-label="戀愛大作戰：心動日記"><strong>戀愛<span>大作戰♡</span></strong><small>心・動・日・記</small></div>
+              <div class="story-controls" aria-label="劇情控制">
+                <button type="button" class="story-control" data-action="toggle-story-auto" data-story-auto><span>▶</span><small>AUTO</small></button>
+                <button type="button" class="story-control" data-action="scene-skip"><span>⏭</span><small>SKIP</small></button>
+                <button type="button" class="story-control" data-action="scene-menu"><span>☷</span><small>MENU</small></button>
+                <button type="button" class="story-control" data-action="scene-settings"><span>⚙</span><small>SET</small></button>
+              </div>
+              <div class="story-quick-settings" data-story-quick-settings hidden>
+                <strong>劇情設定</strong>
+                <button type="button" data-action="toggle-setting" data-setting="sound">音效開關</button>
+                <button type="button" data-action="toggle-setting" data-setting="autoText">快速文字</button>
+                <button type="button" data-action="toggle-setting" data-setting="reduceMotion">減少動畫</button>
+                <button type="button" data-action="scene-settings-close">關閉</button>
+              </div>
+              <div class="story-dialogue-layout">
+                <img class="story-mini-portrait" data-story-portrait src="${escapeHtml(girl ? girl.art : ASSET('hina-portrait.jpg'))}" alt="角色小頭像" decoding="async">
+                <div class="story-dialogue-panel">
+                  <div class="story-speaker-tab" data-story-speaker></div>
+                  <div class="story-dialogue-main">
+                    <p class="dialogue-text" data-story-dialogue></p>
+                    <div class="story-choices" data-story-choices hidden></div>
+                  </div>
+                  <div class="story-dialogue-footer">
+                    <small data-story-note></small>
+                    <button type="button" class="story-next-arrow" data-action="scene-next" data-story-next aria-label="繼續閱讀">▼</button>
+                    <button type="button" class="story-close-line" data-action="scene-close" data-story-close hidden>收進日記　♡</button>
+                  </div>
+                  <span class="story-scene-count" data-story-count></span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>`;
+      card = storyRoot.querySelector('[data-story-modal]');
+    }
+
+    // The scene shell stays mounted. Only text, image URL and visible controls update in place.
+    const artElement = card.querySelector('[data-story-art]');
+    if (artElement && artElement.getAttribute('src') !== art) artElement.setAttribute('src', art);
+    if (artElement) {
+      artElement.alt = `${girl ? girl.name : '青空學園'} 劇情插畫`;
+      artElement.classList.toggle('story-portrait-source', /-portrait\.jpg$/.test(art));
+      artElement.classList.toggle('story-cover-source', art.endsWith('cover-school.jpg'));
+    }
+    const portraitElement = card.querySelector('[data-story-portrait]');
+    const portraitSrc = girl ? girl.art : ASSET('hina-portrait.jpg');
+    if (portraitElement && portraitElement.getAttribute('src') !== portraitSrc) portraitElement.setAttribute('src', portraitSrc);
+    portraitElement.alt = girl ? `${girl.name} 頭像` : '青空學園角色頭像';
+
+    card.setAttribute('aria-label', scene.title || '劇情事件');
+    card.querySelector('[data-story-speaker]').textContent = line.speaker || '旁白';
+    card.querySelector('[data-story-dialogue]').textContent = displayedText;
+    card.querySelector('[data-story-count]').textContent = `${String(scene.index + 1).padStart(2, '0')} / ${String(lines.length).padStart(2, '0')}`;
+
+    const choicesElement = card.querySelector('[data-story-choices]');
+    choicesElement.hidden = !showChoices;
+    choicesElement.innerHTML = showChoices ? scene.choices.map((choice, index) => {
+      const disabled = typeof choice.canChoose === 'function' ? !choice.canChoose() : !!choice.disabled;
+      return `<button class="story-choice" data-action="scene-choice" data-index="${index}" ${disabled ? 'disabled' : ''}><span>${escapeHtml(choice.label)}</span><span>↗</span></button>`;
+    }).join('') : '';
+
+    card.querySelector('[data-story-note]').textContent = scene.typing ? '文字顯示中……' : (state?.settings?.autoPlay ? '自動播放已開啟' : '每個選擇，都有機會改變你們的距離。');
+    const autoButton = card.querySelector('[data-story-auto]');
+    autoButton.classList.toggle('is-active', !!state?.settings?.autoPlay);
+    autoButton.setAttribute('aria-pressed', String(!!state?.settings?.autoPlay));
+    const nextButton = card.querySelector('[data-story-next]');
+    nextButton.hidden = !(scene.typing || scene.index < lines.length - 1);
+    nextButton.textContent = '▼';
+    card.querySelector('[data-story-close]').hidden = !showClose;
+    card.querySelector('[data-story-quick-settings]').hidden = !scene.showQuickSettings;
   }
 
   function startTypingCurrentLine() {
@@ -547,7 +640,7 @@
       if (!scene.typing) { clearSceneTimers(scene); return; }
       scene._typingPosition = Math.min(scene._typingCharacters.length, scene._typingPosition + 2);
       scene.visibleText = scene._typingCharacters.slice(0, scene._typingPosition).join('');
-      const textElement = modalRoot.querySelector ? modalRoot.querySelector('.dialogue-text') : null;
+      const textElement = storyRoot.querySelector ? storyRoot.querySelector('.dialogue-text') : null;
       if (textElement) textElement.textContent = scene.visibleText;
       if (scene._typingPosition >= scene._typingCharacters.length) {
         clearInterval(scene.typewriterTimer);
@@ -583,7 +676,7 @@
     const scene = activeScene;
     clearSceneTimers(scene);
     activeScene = null;
-    modalRoot.innerHTML = '';
+    storyRoot.hidden = true;
     if (typeof scene.onClose === 'function') scene.onClose();
   }
 
@@ -625,7 +718,7 @@
       title: '序章・春天的第一陣風', kicker: 'PROLOGUE · DAY 01', art: 'cover-school.jpg',
       lines: [
         { speaker: '旁白', text: '四月的風穿過青空學園，櫻花花瓣落在操場邊。你剛轉進這所學校，還未完全記熟所有走廊。' },
-        { speaker: '陽菜', text: '「啊，你是新同學吧？歡迎！如果找不到教室，隨時可以問我！」一名綁著馬尾的女生抱著籃球，笑著向你揮手。' },
+        { speaker: '陽菜', text: '「啊，你是新同學吧？歡迎！如果找不到教室，隨時可以問我！」一名棕色短髮的女生抱著籃球，笑著向你揮手。' },
         { speaker: '旁白', text: '午休時，你又在圖書館看見安靜閱讀的澪；放學後，美術室窗邊的小春正把今天的天空畫進本子裡。這個學期，似乎會比想像中熱鬧。' },
         { speaker: '心動日記', text: '第一個行動，要從甚麼開始？也許你現在還不知道，這些看似微小的選擇，最後會成為最難忘的回憶。' }
       ],
@@ -701,7 +794,7 @@
   }
 
   function startChatPicker() {
-    showScene({ title: '想和誰聊聊天？', kicker: 'AFTER SCHOOL · CHOOSE A FRIEND', art: 'scene-campus.jpg', lines: [{ speaker: '旁白', text: '放學後，三個方向都傳來熟悉的聲音。今天想先了解誰的近況？' }], choices: Object.values(GIRLS).map((girl) => ({ label: `${girl.name} · ${girl.role.split('・')[0]}`, outcome: `${girl.short} 的故事即將開始。`, effect: () => { state.selectedGirl = girl.id; state._pendingChatGirl = girl.id; }, canChoose: () => state.stats.stamina >= 8 })), onChoice: (choice) => { /* the selected girl is stored by each option */ }, onClose: () => { if (state._pendingChatGirl) { const id = state._pendingChatGirl; state._pendingChatGirl = null; startChat(id); } }
+    showScene({ title: '想和誰聊聊天？', kicker: 'AFTER SCHOOL · CHOOSE A FRIEND', art: 'cover-school.jpg', lines: [{ speaker: '旁白', text: '放學後，三個方向都傳來熟悉的聲音。今天想先了解誰的近況？' }], choices: Object.values(GIRLS).map((girl) => ({ label: `${girl.name} · ${girl.role.split('・')[0]}`, outcome: `${girl.short} 的故事即將開始。`, effect: () => { state.selectedGirl = girl.id; state._pendingChatGirl = girl.id; }, canChoose: () => state.stats.stamina >= 8 })), onChoice: (choice) => { /* the selected girl is stored by each option */ }, onClose: () => { if (state._pendingChatGirl) { const id = state._pendingChatGirl; state._pendingChatGirl = null; startChat(id); } }
     });
   }
 
@@ -745,7 +838,7 @@
     };
     const lines = scripts[id][count % scripts[id].length].map(([speaker, text]) => ({ speaker, text }));
     showScene({
-      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, lines,
+      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, art: id === 'hina' ? 'hina-campus-cg.jpg' : id === 'mio' ? (count % 2 ? 'mio-library-cg.jpg' : 'mio-scene.jpg') : (count % 2 ? 'koharu-portrait.jpg' : 'koharu-scene.jpg'), lines,
       choices: chatChoices(id),
       onChoice: (choice) => {
         state.girls[id].chats += 1;
@@ -784,7 +877,7 @@
     if (id && GIRLS[id]) { openGiftItemPicker(id); return; }
     const targets = Object.values(GIRLS);
     showScene({
-      title: '挑選一份小禮物', kicker: 'A LITTLE PRESENT', art: 'scene-campus.jpg',
+      title: '挑選一份小禮物', kicker: 'A LITTLE PRESENT', art: 'cover-school.jpg',
       lines: [{ speaker: '旁白', text: `便利店和文具店就在校門附近。你想為誰挑一份小禮物？她的喜好會影響收到禮物時的反應。` }],
       choices: targets.map((girl) => ({ label: `${girl.name} · 喜歡 ${girl.favorite}`, effect: () => { state._giftTarget = girl.id; }, outcome: `你決定替${girl.short}挑一份禮物。下一步，選擇真正要送出的東西。` })),
       onClose: () => { if (state._giftTarget) { const target = state._giftTarget; state._giftTarget = null; openGiftItemPicker(target); } }
@@ -834,7 +927,7 @@
       openDateLocationPicker(id); return;
     }
     if (!available.length) { showToast('先與角色聊天、送禮物或參加社團，讓好感度達到 25 吧。'); return; }
-    showScene({ title: '想約誰一起出去？', kicker: 'WEEKEND PLAN', art: 'scene-campus.jpg', lines: [{ speaker: '旁白', text: '難得有一段自由時間。你想邀請誰，一起離開校園走走？' }], choices: available.map((girl) => ({ label: `${girl.name} · 好感度 ${state.girls[girl.id].affinity}`, effect: () => { state._dateTarget = girl.id; }, outcome: `你決定邀請${girl.short}。要去哪裡，才會成為適合你們的回憶呢？` })), onClose: () => { if (state._dateTarget) { const target = state._dateTarget; state._dateTarget = null; openDateLocationPicker(target); } }
+    showScene({ title: '想約誰一起出去？', kicker: 'WEEKEND PLAN', art: 'cover-school.jpg', lines: [{ speaker: '旁白', text: '難得有一段自由時間。你想邀請誰，一起離開校園走走？' }], choices: available.map((girl) => ({ label: `${girl.name} · 好感度 ${state.girls[girl.id].affinity}`, effect: () => { state._dateTarget = girl.id; }, outcome: `你決定邀請${girl.short}。要去哪裡，才會成為適合你們的回憶呢？` })), onClose: () => { if (state._dateTarget) { const target = state._dateTarget; state._dateTarget = null; openDateLocationPicker(target); } }
     });
   }
 
@@ -875,7 +968,7 @@ ${girl.short}很享受這段時間。只要是一起度過的普通日子，也�
     const girl = GIRLS[id];
     if (state.day < 15 || state.girls[id].affinity < 70) { showToast('先多一點相處與回憶吧。建議第 15 天後、好感度 70 以上再考慮告白。'); return; }
     showScene({
-      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: 'scene-sunset.jpg',
+      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: (id === 'hina' ? ASSET('hina-sunset-cg.jpg') : id === 'mio' ? ASSET('mio-scene.jpg') : ASSET('koharu-scene.jpg')),
       lines: [
         { speaker: '旁白', text: `黃昏的校園漸漸安靜。你和${girl.short}並肩站在熟悉的地方，最近累積的每一段回憶都浮上心頭。` },
         { speaker: girl.short, text: id === 'hina' ? '「我想知道……對你來說，我是不是也有一點特別？」' : id === 'mio' ? '「如果我說，最近最期待的事情是見到你……你會怎樣回答？」' : '「我畫了很多風景，但每一次回看，總覺得少了你就不完整。」' },
@@ -926,7 +1019,7 @@ ${ending.desc}` : '你們把這段青春的心意好好說清楚了。'; }
     }));
     choices.push({ label: '把這個夏天留給友情與自己的成長', effect: () => finalizeEnding(null), outcome: () => ENDINGS.friendship.desc });
     showScene({
-      title: '夏日祭典・最後的選擇', kicker: 'FINAL CHAPTER · DAY 30', art: 'scene-sunset.jpg',
+      title: '夏日祭典・最後的選擇', kicker: 'FINAL CHAPTER · DAY 30', art: 'cover-school.jpg',
       lines: [
         { speaker: '旁白', text: '夏日祭典的燈籠一盞盞亮起，遠處傳來人群的笑聲。這三十天裡，你做過許多小小的決定，也慢慢看清自己珍惜的是甚麼。' },
         { speaker: '旁白', text: '煙花即將升起。是時候替這段青春寫下答案了。請選擇你想留下的結局。' }
@@ -965,14 +1058,35 @@ ${ending.desc}` : '你們把這段青春的心意好好說清楚了。'; }
     const mini = activeMiniGame;
     const isBasketball = mini.kind === 'basketball';
     const name = isBasketball ? '限時接球挑戰' : '羽毛球反應測試';
-    if (mini.finished) {
-      modalRoot.innerHTML = `<div class="modal-backdrop"><section class="minigame-card" role="dialog" aria-modal="true"><div class="minigame-header"><h2>挑戰完成！</h2><span class="pill">${name}</span></div><div class="minigame-field" style="display:grid;place-items:center;background:linear-gradient(180deg,#d9efff,#fff0f6)"><div style="text-align:center"><div style="font-size:46px">${mini.score >= 15 ? '🏆' : '🌸'}</div><h2 style="margin:5px 0 3px;font-size:32px">${mini.score} 分</h2><p style="margin:0;color:var(--muted);font-size:12px">${mini.score >= 20 ? '反應超級快！今天狀態很好。' : mini.score >= 10 ? '做得不錯，再練習幾次會更好。' : '慢慢來，多練習就會進步。'}</p></div></div><div class="minigame-stats"><div class="minigame-stat"><strong>+${Math.floor(mini.score / 3) + 1}</strong><small>體能獎勵</small></div><div class="minigame-stat"><strong>${Math.max(0, state.miniGameBest[mini.kind] || 0)}</strong><small>最高紀錄</small></div><div class="minigame-stat"><strong>12 秒</strong><small>挑戰長度</small></div></div><div style="display:flex;gap:8px;margin-top:14px"><button class="btn btn-primary" data-action="minigame-close">收下獎勵</button><button class="btn btn-soft" data-action="minigame-retry" data-kind="${mini.kind}">再挑戰一次</button></div></section></div>`;
+    const view = mini.finished ? 'finished' : (mini.started ? 'playing' : 'ready');
+    let card = modalRoot.querySelector('[data-minigame-modal]');
+
+    if (card && card.dataset.kind === mini.kind && card.dataset.view === view) {
+      // In-place update during the countdown and on each hit: no modal teardown, no flash.
+      const scoreEl = card.querySelector('[data-mini-score]');
+      const secondsEl = card.querySelector('[data-mini-seconds]');
+      const bestEl = card.querySelector('[data-mini-best]');
+      if (scoreEl) scoreEl.textContent = String(mini.score);
+      if (secondsEl) secondsEl.textContent = `${mini.started ? mini.seconds : 12} 秒`;
+      if (bestEl) bestEl.textContent = String(state.miniGameBest[mini.kind] || 0);
+      const target = card.querySelector('[data-mini-target]');
+      if (target && view === 'playing') {
+        target.style.left = `${11 + ((mini.score * 23 + 17) % 68)}%`;
+        target.style.top = `${12 + ((mini.score * 17 + 19) % 64)}%`;
+      }
       return;
     }
+
+    if (mini.finished) {
+      modalRoot.innerHTML = `<div class="modal-backdrop modal-static"><section class="minigame-card" data-minigame-modal data-kind="${mini.kind}" data-view="finished" role="dialog" aria-modal="true"><div class="minigame-header"><h2>挑戰完成！</h2><span class="pill">${name}</span></div><div class="minigame-field minigame-result-field"><div class="minigame-result"><div class="result-emoji">${mini.score >= 15 ? '🏆' : '🌸'}</div><h2>${mini.score} 分</h2><p>${mini.score >= 20 ? '反應超級快！今天狀態很好。' : mini.score >= 10 ? '做得不錯，再練習幾次會更好。' : '慢慢來，多練習就會進步。'}</p></div></div><div class="minigame-stats"><div class="minigame-stat"><strong>+${Math.floor(mini.score / 3) + 1}</strong><small>體能獎勵</small></div><div class="minigame-stat"><strong data-mini-best>${Math.max(0, state.miniGameBest[mini.kind] || 0)}</strong><small>最高紀錄</small></div><div class="minigame-stat"><strong>12 秒</strong><small>挑戰長度</small></div></div><div class="minigame-actions"><button class="btn btn-primary" data-action="minigame-close">收下獎勵</button><button class="btn btn-soft" data-action="minigame-retry" data-kind="${mini.kind}">再挑戰一次</button></div></section></div>`;
+      return;
+    }
+
     const x = 11 + ((mini.score * 23 + 17) % 68);
     const y = 12 + ((mini.score * 17 + 19) % 64);
-    modalRoot.innerHTML = `<div class="modal-backdrop"><section class="minigame-card" role="dialog" aria-modal="true"><div class="minigame-header"><div><span class="eyebrow">QUICK REFLEX</span><h2 style="margin-top:6px">${name}</h2></div><button class="btn btn-soft btn-small" data-action="minigame-cancel">暫停</button></div><p style="color:var(--muted);font-size:12px;line-height:1.7">${mini.started ? '快點擊畫面中的目標！每次命中都會增加分數。' : '準備好未？按開始後，盡可能在 12 秒內點擊目標。'}</p><div class="minigame-field">${mini.started ? `<button class="target-button" style="left:${x}%;top:${y}%;transform:translate(-50%,-50%)" data-action="mini-hit" aria-label="點擊目標">${isBasketball ? '🏀' : '🏸'}</button>` : `<div style="position:absolute;inset:0;display:grid;place-items:center"><button class="btn btn-pink" data-action="minigame-begin">開始挑戰　▶</button></div>`}</div><div class="minigame-stats"><div class="minigame-stat"><strong>${mini.score}</strong><small>命中次數</small></div><div class="minigame-stat"><strong>${mini.started ? mini.seconds : '12'} 秒</strong><small>剩餘時間</small></div><div class="minigame-stat"><strong>${state.miniGameBest[mini.kind] || 0}</strong><small>最佳分數</small></div></div></section></div>`;
+    modalRoot.innerHTML = `<div class="modal-backdrop modal-static"><section class="minigame-card" data-minigame-modal data-kind="${mini.kind}" data-view="${view}" role="dialog" aria-modal="true"><div class="minigame-header"><div><span class="eyebrow">QUICK REFLEX</span><h2>${name}</h2></div><button class="btn btn-soft btn-small" data-action="minigame-cancel">暫停</button></div><p class="minigame-instructions">${mini.started ? '快點擊畫面中的目標！每次命中都會增加分數。' : '準備好未？按開始後，盡可能在 12 秒內點擊目標。'}</p><div class="minigame-field">${mini.started ? `<button class="target-button" data-mini-target style="left:${x}%;top:${y}%;transform:translate(-50%,-50%)" data-action="mini-hit" aria-label="點擊目標">${isBasketball ? '🏀' : '🏸'}</button>` : `<div class="minigame-start"><button class="btn btn-pink" data-action="minigame-begin">開始挑戰　▶</button></div>`}</div><div class="minigame-stats"><div class="minigame-stat"><strong data-mini-score>${mini.score}</strong><small>命中次數</small></div><div class="minigame-stat"><strong data-mini-seconds>${mini.started ? mini.seconds : '12'} 秒</strong><small>剩餘時間</small></div><div class="minigame-stat"><strong data-mini-best>${state.miniGameBest[mini.kind] || 0}</strong><small>最佳分數</small></div></div></section></div>`;
   }
+
   function beginMiniGame() {
     if (!activeMiniGame || activeMiniGame.started) return;
     activeMiniGame.started = true;
@@ -1043,7 +1157,7 @@ ${ending.desc}` : '你們把這段青春的心意好好說清楚了。'; }
   }
 
   function showGalleryModal() {
-    modalRoot.innerHTML = `<div class="modal-backdrop"><section class="modal-card modal-simple" role="dialog" aria-modal="true"><button class="modal-close" data-action="modal-close">×</button><span class="eyebrow">ART CONCEPT</span><h2>青空學園・美術圖鑑</h2><p>原創校園戀愛遊戲概念拼圖，整理了角色、對話、日程與結局畫面的視覺方向。</p><img class="modal-split-art" src="${ASSET('art-gallery.jpg')}" alt="遊戲視覺概念拼圖"><div style="display:flex;justify-content:flex-end;margin-top:13px"><button class="btn btn-primary" data-action="modal-close">返回主選單</button></div></section></div>`;
+    modalRoot.innerHTML = `<div class="modal-backdrop"><section class="modal-card modal-simple heroine-gallery-modal" role="dialog" aria-modal="true" aria-label="女主角圖鑑"><button class="modal-close" data-action="modal-close" aria-label="關閉">×</button><span class="eyebrow">ORIGINAL HEROINES</span><h2>青空學園・女主角圖鑑</h2><p>這裡只展示遊戲最初版本的三位女主角造型；圖片已修正邊緣裁切與顯示比例，不替換角色設計。</p><div class="illustration-gallery gallery-modal-grid"><article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('hina-portrait.jpg')}')"><img src="${ASSET('hina-portrait.jpg')}" alt="朝霧陽菜"></div><div class="art-caption"><strong>朝霧陽菜</strong><span>籃球部・球場上的太陽</span></div></article><article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('mio-portrait.jpg')}')"><img src="${ASSET('mio-portrait.jpg')}" alt="水瀨澪"></div><div class="art-caption"><strong>水瀨澪</strong><span>羽毛球部・安靜的觀察者</span></div></article><article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('koharu-portrait.jpg')}')"><img src="${ASSET('koharu-portrait.jpg')}" alt="藤宮小春"></div><div class="art-caption"><strong>藤宮小春</strong><span>美術部・收集天空的少女</span></div></article></div><div style="display:flex;justify-content:flex-end;margin-top:13px"><button class="btn btn-primary" data-action="modal-close">返回主選單</button></div></section></div>`;
   }
 
   function showConfirm(title, text, confirmLabel, confirmAction) {
@@ -1089,14 +1203,18 @@ ${girl.intro}
       case 'restart-confirm': showConfirm('重新開始新故事？', '目前的日常進度會被新故事覆蓋，但已解鎖的結局收藏會保留。請先確定是否要重新開始。', '重新開始', 'restart-now'); break;
       case 'restart-now': { const name = state?.playerName || '小晴'; modalRoot.innerHTML = ''; startNewGame(name); break; }
       case 'clear-confirm': showConfirm('清除所有存檔？', '這個操作會永久刪除目前瀏覽器保存的遊戲進度與結局紀錄，不能復原。', '永久清除', 'clear-now'); break;
-      case 'clear-now': { try { localStorage.removeItem(SAVE_KEY); } catch (_) {} state = null; activeScene = null; modalRoot.innerHTML = ''; renderTitle(); showToast('本機遊戲存檔已清除。'); break; }
+      case 'clear-now': { try { localStorage.removeItem(SAVE_KEY); } catch (_) {} state = null; activeScene = null; storyRoot.hidden = true; modalRoot.innerHTML = ''; renderTitle(); showToast('本機遊戲存檔已清除。'); break; }
       case 'finale-now': state.pendingFinale = true; triggerFinale(); break;
       case 'friendship-ending': finalizeEnding(null); state.tab = 'ending'; saveGame(); renderGameFrame(); break;
-      case 'scene-next': if (activeScene) { if (activeScene.typing) finishTyping(); else if (activeScene.index < activeScene.lines.length - 1) { clearSceneTimers(activeScene); activeScene.index++; startTypingCurrentLine(); } } break;
+      case 'scene-next': if (activeScene) { if (activeScene.typing) finishTyping(); else if (activeScene.index < activeScene.lines.length - 1) { clearSceneTimers(activeScene); activeScene.index++; startTypingCurrentLine(); } else if (!activeScene.choices?.length || activeScene.resolved) closeScene(); } break;
+      case 'scene-skip': if (activeScene) { clearSceneTimers(activeScene); activeScene.index = Math.max(0, activeScene.lines.length - 1); activeScene.visibleText = String(activeScene.lines[activeScene.index]?.text || ''); activeScene.typing = false; renderSceneModal(); } break;
+      case 'scene-menu': if (activeScene) { saveGame(); closeScene(); } break;
+      case 'scene-settings': if (activeScene) { activeScene.showQuickSettings = !activeScene.showQuickSettings; renderSceneModal(); } break;
+      case 'scene-settings-close': if (activeScene) { activeScene.showQuickSettings = false; renderSceneModal(); } break;
       case 'toggle-story-auto': if (state?.settings) { state.settings.autoPlay = !state.settings.autoPlay; saveGame(); renderSceneModal(); scheduleSceneAutoAdvance(); showToast(`劇情自動播放已${state.settings.autoPlay ? '開啟' : '關閉'}`); } break;
       case 'scene-choice': chooseSceneOption(Number(target.dataset.index)); break;
       case 'scene-close': closeScene(); break;
-      case 'modal-close': if (activeScene) clearSceneTimers(activeScene); activeScene = null; modalRoot.innerHTML = ''; break;
+      case 'modal-close': if (activeScene) closeScene(); else modalRoot.innerHTML = ''; break;
       case 'minigame-start': launchMiniGame(target.dataset.kind); break;
       case 'minigame-begin': beginMiniGame(); break;
       case 'mini-hit': hitMiniTarget(); break;
@@ -1121,7 +1239,7 @@ ${girl.intro}
   document.addEventListener('click', handleClick);
   document.addEventListener('submit', handleSubmit);
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modalRoot.innerHTML) {
+    if (event.key === 'Escape' && (modalRoot.innerHTML || activeScene)) {
       if (activeMiniGame) cancelMiniGame();
       else if (activeScene) closeScene();
       else modalRoot.innerHTML = '';
