@@ -3,3 +3,5 @@ V5.1 static verification
 - JavaScript syntax check: passed (node --check).
 - ZIP asset references: checked for existence.
 - Browser end-to-end interaction test: not performed in this environment.
+
+V5.2 靜態檢查：更新 Mio/Koharu CG 圖片尺寸及品質；調整 CSS 避免角色 CG 被 cover 裁切。未執行真實瀏覽器互動測試。

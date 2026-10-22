@@ -1,4 +1,1 @@
-Version V5.1 - heroine image mapping fix
-- Lock CG selection to the active heroine for dialogue scenes.
-- Prevent Hina/cover/classroom images from appearing in Mio or Koharu scenes.
-- Preserve separate Mio and Koharu CG pools and rotate by interactions.
+戀愛大作戰：心動日記 V5.2 — CG清晰度修正版

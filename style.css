@@ -427,14 +427,14 @@ img { display: block; max-width: 100%; }
 }
 
 /* v3: keep the original heroine illustrations intact at every breakpoint. */
-.story-art img.story-wide-art { object-fit: cover; object-position: 10% center; padding: 0; }
+.story-art img.story-wide-art { object-fit: contain !important; object-position: center center !important; padding: 0; }
 
 /* Mio's restored original portrait uses the same fitting rule as the other heroines. */
 .heroine-card[data-girl="mio"] .portrait img,
 .character-large[data-girl="mio"] .character-art img,
 .profile-intro img[src*="mio-portrait.jpg"],
 .illustration-card .art-frame img[src*="mio-portrait.jpg"] { object-fit: contain; object-position: center; padding: 2px; }
-.story-art img.story-mio-art { object-fit: cover; object-position: 44% 28%; padding: 0; }
+.story-art img.story-mio-art { object-fit: contain !important; object-position: center center !important; padding: 0; }
 
 .modal-backdrop.modal-static { animation: none; }
 .story-art img.story-hina-scene { object-fit: cover; object-position: center 22%; padding: 0; }
