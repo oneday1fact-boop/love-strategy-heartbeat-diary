@@ -1,7 +1,16 @@
-V5.1 static verification
-- Patched heroine-specific scene art normalization in game.js.
-- JavaScript syntax check: passed (node --check).
-- ZIP asset references: checked for existence.
-- Browser end-to-end interaction test: not performed in this environment.
+《戀愛大作戰：心動日記》V5.3 測試報告
 
-V5.2 靜態檢查：更新 Mio/Koharu CG 圖片尺寸及品質；調整 CSS 避免角色 CG 被 cover 裁切。未執行真實瀏覽器互動測試。
+已執行：
+- JavaScript 語法檢查（node --check）：PASS
+- Chromium 標題畫面載入及三位女主角卡片：PASS
+- 新遊戲／主角名稱流程：PASS
+- 澪聊天畫面：場景 CG 與澪頭像配對：PASS
+- 小春聊天畫面：場景 CG 與小春頭像配對：PASS
+- 小春送禮事件：場景 CG 與小春頭像配對：PASS
+- 訊息頁切換澪聯絡人及頭像：PASS
+- 畫面圖片載入及 JavaScript／console 錯誤檢查：PASS
+- 390px 手機版版面（無水平溢位）：PASS
+
+Chromium 自動化互動測試：8 項 PASS。
+注意：測試使用本機 Chromium 與嵌入式資源映射，並非已發布的 GitHub Pages 網址；上傳後仍應在實際網站驗收。
+圖像品質說明：本版對澪與小春的現有 CG 做原尺寸輕度銳化、對比度調整及高品質 JPEG 編碼；沒有裁切或放大，但後製無法恢復原始素材不存在的細節。

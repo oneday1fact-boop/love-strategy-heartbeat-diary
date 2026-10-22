@@ -1,7 +1,7 @@
 'use strict';
 
 (() => {
-  const SAVE_KEY = 'loveStrategyHeartbeatDiary_v2';
+  const SAVE_KEY = 'loveStrategyHeartbeatDiary_v2'; // V5.3 keeps existing local saves compatible
   const app = document.getElementById('app');
   const modalRoot = document.getElementById('modal-root');
   const storyRoot = document.getElementById('story-root');
@@ -99,7 +99,7 @@
         { label: '笑著說，因為她一直在等你', effect: () => { changeAffinity('mio', 6); adjustStat('courage', 1); }, outcome: '澪的臉一下子紅了。她低頭翻頁，卻把那一頁看了好久都沒有翻過去。' },
         { label: '告訴她，你也會留意她在不在', effect: () => { changeAffinity('mio', 6); adjustStat('charm', 1); }, outcome: '澪輕輕點頭，唇邊露出幾乎看不見、卻很真實的微笑。' }
       ] },
-      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-cg-08.jpg', lines: [
+      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-rain-cg.jpg', lines: [
         ['旁白', '放學時突然下起雨。澪撐開一把透明雨傘，站在校門口等你。'],
         ['澪', '「天氣預報說會下雨。我想……你可能沒有帶傘。」'],
         ['澪', '兩人肩膀靠得很近。她望著雨滴，輕聲說：「和你一起走的路，好像總是比平常短。」']
@@ -107,7 +107,7 @@
         { label: '把傘柄握得更穩，陪她慢慢走', effect: () => { changeAffinity('mio', 7); adjustStat('courage', 1); }, outcome: '澪沒有退開。回到家後，你收到她的訊息：「今天的雨聲很好聽。謝謝你一起走。」' },
         { label: '問她夏日祭典想看哪一種煙花', effect: () => changeAffinity('mio', 6), outcome: '澪想了一會，說自己想看藍色的煙花。說完後，她小聲問你那天有沒有空。' }
       ] },
-      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-cg-08.jpg', lines: [
+      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-night-cg.jpg', lines: [
         ['澪', '「以前我覺得，只要把事情做好，就不需要向別人說太多。」'],
         ['澪', '「可是最近，我會想把看到的天空、聽到的歌，還有每天很普通的小事，第一個告訴你。」']
       ], choices: [
@@ -140,7 +140,7 @@
         { label: '珍惜地收下，答應會一直保存', effect: () => { changeAffinity('koharu', 7); adjustStat('courage', 1); }, outcome: '小春的笑容像畫裡的夕陽一樣柔和。她說，祭典當天還有一件事想讓你知道。' },
         { label: '邀請她一起去看真正的夕陽', effect: () => changeAffinity('koharu', 6), outcome: '小春輕輕點頭，已經開始想像那天要帶哪一本畫簿。' }
       ] },
-      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-cg-07.jpg', lines: [
+      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-cg-10.jpg', lines: [
         ['小春', '「我重新翻看最近畫的每一張畫，才發現你總是在某個角落。」'],
         ['小春', '「我想，這大概就是喜歡一個人的樣子吧。無論在甚麼地方，都會不自覺想起他。」']
       ], choices: [
@@ -843,14 +843,15 @@
 
   // Each heroine has a curated scene pool; every interaction rotates the CG instead of reusing one image.
   const SCENE_POOLS = {
-    // Every heroine has her own CG pool; never borrow another heroine's image for an event.
+    // Per-heroine scene pools; avoid reusing one CG for every conversation.
     hina: ['hina-practice-cg.jpg', 'hina-court-cg.jpg', 'hina-campus-cg.jpg', 'hina-cafe-cg.jpg', 'hina-evening-cg.jpg', 'hina-sunset-cg.jpg'],
-    mio: ['mio-cg-01.jpg', 'mio-cg-02.jpg', 'mio-cg-03.jpg', 'mio-cg-04.jpg', 'mio-cg-05.jpg', 'mio-cg-06.jpg', 'mio-cg-07.jpg', 'mio-cg-08.jpg', 'mio-cg-09.jpg', 'mio-cg-10.jpg'],
-    koharu: ['koharu-cg-01.jpg', 'koharu-cg-02.jpg', 'koharu-cg-03.jpg', 'koharu-cg-04.jpg', 'koharu-cg-05.jpg', 'koharu-cg-06.jpg', 'koharu-cg-07.jpg', 'koharu-cg-08.jpg', 'koharu-cg-09.jpg', 'koharu-cg-10.jpg']
+    mio: ['mio-library-cg.jpg', 'mio-cg-01.jpg', 'mio-cg-02.jpg', 'mio-cg-03.jpg', 'mio-rain-cg.jpg', 'mio-cg-05.jpg', 'mio-cg-06.jpg', 'mio-cg-07.jpg', 'mio-night-cg.jpg', 'mio-cg-10.jpg', 'mio-library-evening-cg.jpg'],
+    koharu: ['koharu-studio-cg.jpg', 'koharu-park-cg.jpg', 'koharu-stationery-cg.jpg', 'koharu-cg-01.jpg', 'koharu-cg-02.jpg', 'koharu-cg-03.jpg', 'koharu-cg-04.jpg', 'koharu-cg-05.jpg', 'koharu-cg-06.jpg', 'koharu-cg-07.jpg', 'koharu-cg-08.jpg', 'koharu-cg-09.jpg', 'koharu-cg-10.jpg']
   };
   function nextSceneArt(id, offset = 0) {
     const pool = SCENE_POOLS[id] || ['cover-school.jpg'];
-    const count = state?.girls?.[id]?.chats || 0;
+    const girlState = state?.girls?.[id] || {};
+    const count = (girlState.chats || 0) + (girlState.gifts || 0) * 2 + (girlState.dates || 0) * 3;
     return pool[(count + offset) % pool.length];
   }
 
@@ -991,7 +992,12 @@
           state.inventory.push(gift.label);
           state.lastAction = `送給${girl.short}${gift.label}`;
           pushDiary(`送給${girl.short}的小禮物`, `你花了 ${gift.price} 元，送給${girl.short}${gift.label}。${match ? '她看起來真的很喜歡。' : '她有禮貌地收下，也感謝你的心意。'}`, '禮物');
-          state._giftSent = { id, gift: gift.label, giftId: gift.id, match, art: nextSceneArt(id, state.girls[id].gifts) };
+          const giftArtByGirl = {
+            hina: { drink: 'hina-cafe-cg.jpg', milk: 'hina-sunset-cg.jpg', sketchbook: 'hina-evening-cg.jpg', sweets: 'hina-campus-cg.jpg' },
+            mio: { drink: 'mio-rain-cg.jpg', milk: 'mio-library-cg.jpg', sketchbook: 'mio-cg-01.jpg', sweets: 'mio-night-cg.jpg' },
+            koharu: { drink: 'koharu-park-cg.jpg', milk: 'koharu-cg-06.jpg', sketchbook: 'koharu-studio-cg.jpg', sweets: 'koharu-stationery-cg.jpg' }
+          };
+          state._giftSent = { id, gift: gift.label, giftId: gift.id, match, art: giftArtByGirl[id]?.[gift.id] || nextSceneArt(id, state.girls[id].gifts) };
           state.selectedGirl = id;
           advanceTurn(true);
         },
@@ -1058,7 +1064,12 @@
         changeAffinity(id, match ? 10 : 6);
         adjustStat('charm', 1);
         state.girls[id].dates += 1;
-        state._dateResult = { girl: id, place: place.name, text: `${girl.short}和你${place.name === '獨立書店' ? '慢慢走過書架，分享最近想看的故事。' : place.name === '街角咖啡店' ? '坐在靠窗的位置分享甜點，也聊起各自喜歡的風景。' : place.name === '河畔公園' ? '沿著河畔散步，聊到各自希望在夏天完成的事。' : '並肩看著天空從淺藍變成淡橙色，聊起最近的小心事。'}`, match, art: nextSceneArt(id, state.girls[id].dates) };
+        const dateArtByGirl = {
+          hina: { park: 'hina-campus-cg.jpg', bookstore: 'hina-cafe-cg.jpg', cafe: 'hina-cafe-cg.jpg', campus: 'hina-evening-cg.jpg' },
+          mio: { park: 'mio-rain-cg.jpg', bookstore: 'mio-library-cg.jpg', cafe: 'mio-library-evening-cg.jpg', campus: 'mio-night-cg.jpg' },
+          koharu: { park: 'koharu-park-cg.jpg', bookstore: 'koharu-stationery-cg.jpg', cafe: 'koharu-studio-cg.jpg', campus: 'koharu-cg-04.jpg' }
+        };
+        state._dateResult = { girl: id, place: place.name, text: `${girl.short}和你${place.name === '獨立書店' ? '慢慢走過書架，分享最近想看的故事。' : place.name === '街角咖啡店' ? '坐在靠窗的位置分享甜點，也聊起各自喜歡的風景。' : place.name === '河畔公園' ? '沿著河畔散步，聊到各自希望在夏天完成的事。' : '並肩看著天空從淺藍變成淡橙色，聊起最近的小心事。'}`, match, art: dateArtByGirl[id]?.[place.id] || nextSceneArt(id, state.girls[id].dates) };
         state.selectedGirl = id;
         pushDiary(`與${girl.short}的約會`, `你和${girl.short}去了${place.name}。${place.lines}`, '約會');
         addMessage(id, id, `今天去了${place.name}，我覺得很開心。下次也一起出去吧。`);
