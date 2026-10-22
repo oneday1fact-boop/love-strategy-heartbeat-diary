@@ -1,7 +1,7 @@
 'use strict';
 
 (() => {
-  const SAVE_KEY = 'loveStrategyHeartbeatDiary_v1';
+  const SAVE_KEY = 'loveStrategyHeartbeatDiary_v2';
   const app = document.getElementById('app');
   const modalRoot = document.getElementById('modal-root');
   const storyRoot = document.getElementById('story-root');
@@ -58,7 +58,7 @@
         { label: '認真替她數球，陪她練到最後', effect: () => changeAffinity('hina', 5), outcome: '陽菜投進最後一球，開心地向你擊掌。她把這份一起努力的回憶收在心裡。' },
         { label: '提醒她休息，明天再繼續', effect: () => { changeAffinity('hina', 4); adjustStat('charm', 1); }, outcome: '陽菜先是愣了一下，之後才笑著點頭。「你有時比教練還嚴格呢。」' }
       ] },
-      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'hina-scene.jpg', lines: [
+      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'hina-campus-cg.jpg', lines: [
         ['旁白', '練習賽結束後，陽菜坐在空蕩蕩的看台上。她沒有像平常一樣大聲說笑。'],
         ['陽菜', '「我明明練了那麼久，最後還是失誤了。大家都說沒關係，但我自己好不甘心。」'],
         ['陽菜', '她低下頭：「如果有一天我真的做不到，你還會覺得我很厲害嗎？」']
@@ -99,7 +99,7 @@
         { label: '笑著說，因為她一直在等你', effect: () => { changeAffinity('mio', 6); adjustStat('courage', 1); }, outcome: '澪的臉一下子紅了。她低頭翻頁，卻把那一頁看了好久都沒有翻過去。' },
         { label: '告訴她，你也會留意她在不在', effect: () => { changeAffinity('mio', 6); adjustStat('charm', 1); }, outcome: '澪輕輕點頭，唇邊露出幾乎看不見、卻很真實的微笑。' }
       ] },
-      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-scene.jpg', lines: [
+      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'classroom-window-cg.jpg', lines: [
         ['旁白', '放學時突然下起雨。澪撐開一把透明雨傘，站在校門口等你。'],
         ['澪', '「天氣預報說會下雨。我想……你可能沒有帶傘。」'],
         ['澪', '兩人肩膀靠得很近。她望著雨滴，輕聲說：「和你一起走的路，好像總是比平常短。」']
@@ -107,7 +107,7 @@
         { label: '把傘柄握得更穩，陪她慢慢走', effect: () => { changeAffinity('mio', 7); adjustStat('courage', 1); }, outcome: '澪沒有退開。回到家後，你收到她的訊息：「今天的雨聲很好聽。謝謝你一起走。」' },
         { label: '問她夏日祭典想看哪一種煙花', effect: () => changeAffinity('mio', 6), outcome: '澪想了一會，說自己想看藍色的煙花。說完後，她小聲問你那天有沒有空。' }
       ] },
-      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-portrait.jpg', lines: [
+      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'classroom-morning-cg.jpg', lines: [
         ['澪', '「以前我覺得，只要把事情做好，就不需要向別人說太多。」'],
         ['澪', '「可是最近，我會想把看到的天空、聽到的歌，還有每天很普通的小事，第一個告訴你。」']
       ], choices: [
@@ -124,7 +124,7 @@
         { label: '仔細看畫，說出你最喜歡的細節', effect: () => { changeAffinity('koharu', 5); adjustStat('charm', 1); }, outcome: '小春聽得很專注。你指出的一個小細節，正好是她最在意、卻以為不會有人留意的地方。' },
         { label: '問她畫這幅畫時在想甚麼', effect: () => { changeAffinity('koharu', 5); adjustStat('courage', 1); }, outcome: '小春慢慢說起畫中的故事。她發現，你想了解的不只是完成的作品，還有她的心情。' }
       ] },
-      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'koharu-portrait.jpg', lines: [
+      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'classroom-window-cg.jpg', lines: [
         ['旁白', '小春邀請你到校園後方找繪畫素材。她一直望著天空，卻遲遲沒有落筆。'],
         ['小春', '「我總覺得，如果畫得不夠好，就不應該讓別人看見。」'],
         ['小春', '「但每次跟你一起找風景時，我都會想……也許不完美的東西，也值得被喜歡。」']
@@ -132,7 +132,7 @@
         { label: '告訴她，你最喜歡畫裡真實的心情', effect: () => { changeAffinity('koharu', 6); adjustStat('charm', 1); }, outcome: '小春終於開始畫下第一筆。她把這張畫命名為「有人一起看的天空」。' },
         { label: '提議兩個人一起完成這張畫', effect: () => { changeAffinity('koharu', 6); adjustStat('courage', 1); }, outcome: '小春把另一支鉛筆遞給你。兩種筆觸在紙上交會，意外地成為她最喜歡的一部分。' }
       ] },
-      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'koharu-scene.jpg', lines: [
+      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'classroom-morning-cg.jpg', lines: [
         ['旁白', '祭典前夕，小春把一幅用淡藍和粉橙色描繪的夕陽交給你。畫裡有一個模糊的身影，正站在她旁邊。'],
         ['小春', '「我本來想畫得很像，但畫到最後，最清楚的反而是那天的感覺。」'],
         ['小春', '「如果你不介意……我想把這幅畫送給你。」']
@@ -140,7 +140,7 @@
         { label: '珍惜地收下，答應會一直保存', effect: () => { changeAffinity('koharu', 7); adjustStat('courage', 1); }, outcome: '小春的笑容像畫裡的夕陽一樣柔和。她說，祭典當天還有一件事想讓你知道。' },
         { label: '邀請她一起去看真正的夕陽', effect: () => changeAffinity('koharu', 6), outcome: '小春輕輕點頭，已經開始想像那天要帶哪一本畫簿。' }
       ] },
-      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-portrait.jpg', lines: [
+      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'cover-school.jpg', lines: [
         ['小春', '「我重新翻看最近畫的每一張畫，才發現你總是在某個角落。」'],
         ['小春', '「我想，這大概就是喜歡一個人的樣子吧。無論在甚麼地方，都會不自覺想起他。」']
       ], choices: [
@@ -153,7 +153,7 @@
   // Preload all in-game CGs. Fixed geometry + cached images prevents layout jumps on scene changes.
   const PRELOAD_ASSETS = [
     'cover-school.jpg','hina-portrait.jpg','hina-scene.jpg','hina-court-cg.jpg','hina-campus-cg.jpg','hina-sunset-cg.jpg',
-    'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','koharu-portrait.jpg','koharu-scene.jpg','classroom-morning-cg.jpg','classroom-window-cg.jpg'
+    'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','koharu-portrait.jpg','koharu-scene.jpg','classroom-morning-cg.jpg','classroom-window-cg.jpg','hina-campus-cg.jpg','hina-sunset-cg.jpg'
   ];
   const preloadCache = new Map();
   PRELOAD_ASSETS.forEach((name) => { const image = new Image(); image.decoding = 'async'; image.src = ASSET(name); preloadCache.set(name, image); });
@@ -543,7 +543,8 @@
     const normalizedArt = ({
       'hina-portrait.jpg': 'hina-campus-cg.jpg',
       'hina-scene.jpg': 'hina-campus-cg.jpg',
-      'mio-portrait.jpg': 'mio-library-cg.jpg'
+      'mio-portrait.jpg': 'mio-library-cg.jpg',
+      'koharu-portrait.jpg': 'koharu-scene.jpg'
     })[requestedArt] || requestedArt;
     const art = normalizedArt.startsWith('./') ? normalizedArt : ASSET(normalizedArt);
     const isLastLine = scene.index === lines.length - 1;
@@ -811,11 +812,24 @@
     });
   }
 
+  // Each heroine has a curated scene pool; every interaction rotates the CG instead of reusing one image.
+  const SCENE_POOLS = {
+    hina: ['hina-court-cg.jpg', 'hina-campus-cg.jpg', 'hina-sunset-cg.jpg', 'classroom-morning-cg.jpg'],
+    mio: ['mio-scene.jpg', 'mio-library-cg.jpg', 'classroom-window-cg.jpg', 'classroom-morning-cg.jpg'],
+    koharu: ['koharu-scene.jpg', 'classroom-window-cg.jpg', 'classroom-morning-cg.jpg', 'cover-school.jpg']
+  };
+  function nextSceneArt(id, offset = 0) {
+    const pool = SCENE_POOLS[id] || ['cover-school.jpg'];
+    const count = state?.girls?.[id]?.chats || 0;
+    return pool[(count + offset) % pool.length];
+  }
+
   function startChat(id) {
     if (!GIRLS[id]) return;
     if (state?.ending) { showToast('這一輪故事已經結束；可以在設定中開始新一輪。'); return; }
     if (state.stats.stamina < 8) { showToast('體力不足，先休息一下再聊天吧。'); return; }
     const girl = GIRLS[id];
+    state.selectedGirl = id;
     const count = state.girls[id].chats;
     const scripts = {
       hina: [
@@ -851,7 +865,7 @@
     };
     const lines = scripts[id][count % scripts[id].length].map(([speaker, text]) => ({ speaker, text }));
     showScene({
-      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, art: id === 'hina' ? (count % 2 ? 'hina-campus-cg.jpg' : 'hina-court-cg.jpg') : id === 'mio' ? (count % 2 ? 'mio-library-cg.jpg' : 'mio-scene.jpg') : 'koharu-scene.jpg', lines,
+      title: `${girl.short}・放學後的閒聊`, kicker: 'DAILY CONVERSATION', girlId: id, art: nextSceneArt(id), lines,
       choices: chatChoices(id),
       onChoice: (choice) => {
         state.girls[id].chats += 1;
@@ -899,15 +913,16 @@
 
   function openGiftItemPicker(id) {
     const girl = GIRLS[id];
+    state.selectedGirl = id;
     const gifts = [
-      { id: 'drink', label: '運動飲品', price: 45, match: 'hina', emoji: '🥤', desc: '清爽、實用的小心意。' },
-      { id: 'milk', label: '熱牛奶', price: 40, match: 'mio', emoji: '🥛', desc: '適合安靜午後的溫暖。' },
-      { id: 'sketchbook', label: '素描本', price: 60, match: 'koharu', emoji: '📒', desc: '讓靈感可以被留下來。' },
-      { id: 'sweets', label: '草莓蛋糕', price: 50, match: 'koharu', emoji: '🍰', desc: '甜甜的，一起分享最好。' }
+      { id: 'drink', label: '運動飲品', price: 45, match: 'hina', emoji: '🥤', desc: '清爽、實用的小心意。', art: 'hina-court-cg.jpg' },
+      { id: 'milk', label: '熱牛奶', price: 40, match: 'mio', emoji: '🥛', desc: '適合安靜午後的溫暖。', art: 'mio-library-cg.jpg' },
+      { id: 'sketchbook', label: '素描本', price: 60, match: 'koharu', emoji: '📒', desc: '讓靈感可以被留下來。', art: 'koharu-scene.jpg' },
+      { id: 'sweets', label: '草莓蛋糕', price: 50, match: 'koharu', emoji: '🍰', desc: '甜甜的，一起分享最好。', art: 'classroom-window-cg.jpg' }
     ];
     showScene({
-      title: `送給${girl.short}的禮物`, kicker: 'PICK A PRESENT', girlId: id,
-      lines: [{ speaker: '旁白', text: `你站在貨架前，想起${girl.short}平日喜歡的東西。選一份禮物送給她吧。` }],
+      title: `送給${girl.short}的禮物`, kicker: 'PICK A PRESENT', girlId: id, art: nextSceneArt(id, state.girls[id].gifts),
+      lines: [{ speaker: '旁白', text: `你站在貨架前，想起${girl.short}平日喜歡的東西。選一份禮物送給她吧。每次送禮都會留下不同的反應和回憶。` }],
       choices: gifts.map((gift) => ({
         label: `${gift.emoji} ${gift.label} · ${gift.price} 元`, disabled: state.stats.money < gift.price,
         canChoose: () => state.stats.money >= gift.price,
@@ -920,12 +935,14 @@
           state.inventory.push(gift.label);
           state.lastAction = `送給${girl.short}${gift.label}`;
           pushDiary(`送給${girl.short}的小禮物`, `你花了 ${gift.price} 元，送給${girl.short}${gift.label}。${match ? '她看起來真的很喜歡。' : '她有禮貌地收下，也感謝你的心意。'}`, '禮物');
-          state._giftSent = { id, gift: gift.label, match };
+          state._giftSent = { id, gift: gift.label, match, art: gift.art };
+          state.selectedGirl = id;
           advanceTurn(true);
         },
         outcome: () => {
           const sent = state._giftSent;
-          return sent ? (sent.match ? `${girl.short}的眼睛亮起來：「你怎麼知道我喜歡這個？我會好好珍惜的。」好感度提升更多。` : `${girl.short}微笑著接過禮物：「謝謝你想到我。這份心意我收到了。」`) : '你們交換了一個微笑。'
+          if (sent && sent.art && activeScene) activeScene.art = sent.art;
+          return sent ? (sent.match ? (sent.gift === '運動飲品' ? `陽菜接過運動飲品，立刻笑著說：「正好練習完口渴！下次比賽後也陪我去買一瓶，好不好？」` : sent.gift === '熱牛奶' ? `澪用雙手捧住熱牛奶，輕聲說：「你記得我喜歡暖一點的……今晚讀書時，我會想起這一刻。」` : sent.gift === '素描本' ? `小春翻開素描本，眼睛亮了起來：「第一頁想畫今天的你，可以嗎？這本我一定會好好保存。」` : `${girl.short}開心地和你分享甜點：「下次也一起來吧，我想把這家店推薦給你。」`) : `${girl.short}微笑著接過${sent.gift}：「謝謝你想到我。雖然不是我平常最常選的東西，但我會記住這份心意。」`) : '你們交換了一個微笑。'
         }
       })),
       onClose: () => { state._giftSent = null; afterAction(); }
@@ -946,11 +963,12 @@
 
   function openDateLocationPicker(id) {
     const girl = GIRLS[id];
+    state.selectedGirl = id;
     const places = [
-      { id: 'park', icon: '🌳', name: '河畔公園', price: 40, match: 'hina', lines: '你們沿著河畔散步，聊到各自希望在夏天完成的事。風吹過樹梢，陽菜似乎比平日更放鬆。' },
-      { id: 'bookstore', icon: '📚', name: '獨立書店', price: 40, match: 'mio', lines: '你們在書架之間慢慢走。澪把一本自己喜歡的書交給你，說想知道你看完後的想法。' },
-      { id: 'cafe', icon: '🍰', name: '街角咖啡店', price: 50, match: 'koharu', lines: '小春選了靠窗的位置，兩人一邊分享甜點，一邊看著人來人往。她偷偷替這個下午畫了一張速寫。' },
-      { id: 'campus', icon: '☁️', name: '校園後方看夕陽', price: 20, match: null, lines: '你們走到校園後方，看著天空從淺藍變成淡橙色。平常熟悉的校園，今天好像有點不一樣。' }
+      { id: 'park', icon: '🌳', name: '河畔公園', price: 40, match: 'hina', art: 'hina-campus-cg.jpg', lines: '你們沿著河畔散步，聊到各自希望在夏天完成的事。風吹過樹梢，陽菜似乎比平日更放鬆。' },
+      { id: 'bookstore', icon: '📚', name: '獨立書店', price: 40, match: 'mio', art: 'mio-library-cg.jpg', lines: '你們在書架之間慢慢走。澪把一本自己喜歡的書交給你，說想知道你看完後的想法。' },
+      { id: 'cafe', icon: '🍰', name: '街角咖啡店', price: 50, match: 'koharu', art: 'classroom-window-cg.jpg', lines: '小春選了靠窗的位置，兩人一邊分享甜點，一邊看著人來人往。她偷偷替這個下午畫了一張速寫。' },
+      { id: 'campus', icon: '☁️', name: '校園後方看夕陽', price: 20, match: null, art: 'hina-sunset-cg.jpg', lines: '你們走到校園後方，看著天空從淺藍變成淡橙色。平常熟悉的校園，今天好像有點不一樣。' }
     ];
     showScene({ title: `邀請${girl.short}約會`, kicker: 'A LITTLE DATE', girlId: id, lines: [{ speaker: '旁白', text: `${girl.short}答應和你一起出去。選擇一個地點，讓這段時間留下特別的回憶。` }], choices: places.map((place) => ({
       label: `${place.icon} ${place.name} · ${place.price} 元`, disabled: state.stats.money < place.price, canChoose: () => state.stats.money >= place.price, disabledMessage: '金錢不足，先去打工吧。',
@@ -960,13 +978,15 @@
         changeAffinity(id, match ? 10 : 6);
         adjustStat('charm', 1);
         state.girls[id].dates += 1;
-        state._dateResult = { girl: id, place: place.name, text: place.lines, match };
+        state._dateResult = { girl: id, place: place.name, text: place.lines, match, art: place.art };
+        state.selectedGirl = id;
         pushDiary(`與${girl.short}的約會`, `你和${girl.short}去了${place.name}。${place.lines}`, '約會');
         addMessage(id, id, `今天去了${place.name}，我覺得很開心。下次也一起出去吧。`);
         advanceTurn(true);
       },
       outcome: () => {
         const result = state._dateResult;
+        if (result && result.art && activeScene) activeScene.art = result.art;
         return result ? `${result.text}${result.match ? `
 
 ${girl.short}的心情特別好。你選中了她喜歡的約會地點，好感度提升更多。` : `
@@ -1000,7 +1020,8 @@ ${ending.desc}` : '你們終於認真地說出了心底的話。' } },
 
   function maybeTriggerMilestone() {
     if (!state || state.pendingFinale || state.ending || activeScene || activeMiniGame) return;
-    for (const girlId of Object.keys(MILESTONES)) {
+    const activeGirlIds = state.selectedGirl && MILESTONES[state.selectedGirl] ? [state.selectedGirl] : Object.keys(MILESTONES);
+    for (const girlId of activeGirlIds) {
       const milestones = MILESTONES[girlId];
       for (const event of milestones) {
         const gs = state.girls[girlId];
