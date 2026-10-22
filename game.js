@@ -83,7 +83,7 @@
       ] }
     ],
     mio: [
-      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'mio-library-evening-cg.jpg', lines: [
+      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'mio-cg-01.jpg', lines: [
         ['旁白', '清晨的體育館還沒開足燈，澪已經完成了一輪發球練習。她看到你時，手上的球拍停了一下。'],
         ['澪', '「你真的來了。我以為昨天只是隨口一提……謝謝。」'],
         ['澪', '她把備用球拍遞給你：「要不要試一下？我可以慢慢教你。」']
@@ -91,7 +91,7 @@
         { label: '認真學她示範的動作', effect: () => { changeAffinity('mio', 5); adjustStat('fitness', 1); }, outcome: '澪仔細替你調整握拍姿勢。她話不多，但每一次提醒都很溫柔。' },
         { label: '先問她自己最喜歡哪個動作', effect: () => { changeAffinity('mio', 4); adjustStat('charm', 1); }, outcome: '澪難得主動示範了好幾次。她似乎很高興，你在意的不只是一場比賽。' }
       ] },
-      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'mio-rain-cg.jpg', lines: [
+      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'mio-cg-03.jpg', lines: [
         ['旁白', '圖書館午後很安靜。澪把一本筆記推到你面前，頁邊整齊地寫滿了重點。'],
         ['澪', '「我習慣把想不通的事情寫下來。可是有些事……寫了很多遍，還是沒有答案。」'],
         ['澪', '她小聲補充：「例如，為什麼我每次看到你走進來，都會先抬頭。」']
@@ -99,7 +99,7 @@
         { label: '笑著說，因為她一直在等你', effect: () => { changeAffinity('mio', 6); adjustStat('courage', 1); }, outcome: '澪的臉一下子紅了。她低頭翻頁，卻把那一頁看了好久都沒有翻過去。' },
         { label: '告訴她，你也會留意她在不在', effect: () => { changeAffinity('mio', 6); adjustStat('charm', 1); }, outcome: '澪輕輕點頭，唇邊露出幾乎看不見、卻很真實的微笑。' }
       ] },
-      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-night-cg.jpg', lines: [
+      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-cg-08.jpg', lines: [
         ['旁白', '放學時突然下起雨。澪撐開一把透明雨傘，站在校門口等你。'],
         ['澪', '「天氣預報說會下雨。我想……你可能沒有帶傘。」'],
         ['澪', '兩人肩膀靠得很近。她望著雨滴，輕聲說：「和你一起走的路，好像總是比平常短。」']
@@ -107,7 +107,7 @@
         { label: '把傘柄握得更穩，陪她慢慢走', effect: () => { changeAffinity('mio', 7); adjustStat('courage', 1); }, outcome: '澪沒有退開。回到家後，你收到她的訊息：「今天的雨聲很好聽。謝謝你一起走。」' },
         { label: '問她夏日祭典想看哪一種煙花', effect: () => changeAffinity('mio', 6), outcome: '澪想了一會，說自己想看藍色的煙花。說完後，她小聲問你那天有沒有空。' }
       ] },
-      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-night-cg.jpg', lines: [
+      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-cg-08.jpg', lines: [
         ['澪', '「以前我覺得，只要把事情做好，就不需要向別人說太多。」'],
         ['澪', '「可是最近，我會想把看到的天空、聽到的歌，還有每天很普通的小事，第一個告訴你。」']
       ], choices: [
@@ -116,7 +116,7 @@
       ] }
     ],
     koharu: [
-      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'koharu-studio-cg.jpg', lines: [
+      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'koharu-cg-01.jpg', lines: [
         ['旁白', '美術室裡只剩下畫筆碰到紙面的細聲。小春急忙把畫簿合上，像是被你看見了秘密。'],
         ['小春', '「啊……不是不想給你看，只是還沒有畫好。」'],
         ['小春', '她想了一會，終於把畫簿轉向你：「如果你願意的話，可以先看一小部分。」']
@@ -124,7 +124,7 @@
         { label: '仔細看畫，說出你最喜歡的細節', effect: () => { changeAffinity('koharu', 5); adjustStat('charm', 1); }, outcome: '小春聽得很專注。你指出的一個小細節，正好是她最在意、卻以為不會有人留意的地方。' },
         { label: '問她畫這幅畫時在想甚麼', effect: () => { changeAffinity('koharu', 5); adjustStat('courage', 1); }, outcome: '小春慢慢說起畫中的故事。她發現，你想了解的不只是完成的作品，還有她的心情。' }
       ] },
-      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'koharu-stationery-cg.jpg', lines: [
+      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'koharu-cg-02.jpg', lines: [
         ['旁白', '小春邀請你到校園後方找繪畫素材。她一直望著天空，卻遲遲沒有落筆。'],
         ['小春', '「我總覺得，如果畫得不夠好，就不應該讓別人看見。」'],
         ['小春', '「但每次跟你一起找風景時，我都會想……也許不完美的東西，也值得被喜歡。」']
@@ -132,7 +132,7 @@
         { label: '告訴她，你最喜歡畫裡真實的心情', effect: () => { changeAffinity('koharu', 6); adjustStat('charm', 1); }, outcome: '小春終於開始畫下第一筆。她把這張畫命名為「有人一起看的天空」。' },
         { label: '提議兩個人一起完成這張畫', effect: () => { changeAffinity('koharu', 6); adjustStat('courage', 1); }, outcome: '小春把另一支鉛筆遞給你。兩種筆觸在紙上交會，意外地成為她最喜歡的一部分。' }
       ] },
-      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'koharu-park-cg.jpg', lines: [
+      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'koharu-cg-07.jpg', lines: [
         ['旁白', '祭典前夕，小春把一幅用淡藍和粉橙色描繪的夕陽交給你。畫裡有一個模糊的身影，正站在她旁邊。'],
         ['小春', '「我本來想畫得很像，但畫到最後，最清楚的反而是那天的感覺。」'],
         ['小春', '「如果你不介意……我想把這幅畫送給你。」']
@@ -140,7 +140,7 @@
         { label: '珍惜地收下，答應會一直保存', effect: () => { changeAffinity('koharu', 7); adjustStat('courage', 1); }, outcome: '小春的笑容像畫裡的夕陽一樣柔和。她說，祭典當天還有一件事想讓你知道。' },
         { label: '邀請她一起去看真正的夕陽', effect: () => changeAffinity('koharu', 6), outcome: '小春輕輕點頭，已經開始想像那天要帶哪一本畫簿。' }
       ] },
-      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-park-cg.jpg', lines: [
+      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-cg-07.jpg', lines: [
         ['小春', '「我重新翻看最近畫的每一張畫，才發現你總是在某個角落。」'],
         ['小春', '「我想，這大概就是喜歡一個人的樣子吧。無論在甚麼地方，都會不自覺想起他。」']
       ], choices: [
@@ -156,7 +156,9 @@
     'hina-practice-cg.jpg','hina-cafe-cg.jpg','hina-evening-cg.jpg',
     'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','mio-library-evening-cg.jpg','mio-rain-cg.jpg','mio-night-cg.jpg',
     'koharu-portrait.jpg','koharu-scene.jpg','koharu-studio-cg.jpg','koharu-stationery-cg.jpg','koharu-park-cg.jpg',
-    'classroom-morning-cg.jpg','classroom-window-cg.jpg','hina-court-cg.jpg'
+    'classroom-morning-cg.jpg','classroom-window-cg.jpg','hina-court-cg.jpg',
+    'mio-cg-01.jpg','mio-cg-02.jpg','mio-cg-03.jpg','mio-cg-04.jpg','mio-cg-05.jpg','mio-cg-06.jpg','mio-cg-07.jpg','mio-cg-08.jpg','mio-cg-09.jpg','mio-cg-10.jpg',
+    'koharu-cg-01.jpg','koharu-cg-02.jpg','koharu-cg-03.jpg','koharu-cg-04.jpg','koharu-cg-05.jpg','koharu-cg-06.jpg','koharu-cg-07.jpg','koharu-cg-08.jpg','koharu-cg-09.jpg','koharu-cg-10.jpg'
   ];
   const preloadCache = new Map();
   PRELOAD_ASSETS.forEach((name) => { const image = new Image(); image.decoding = 'async'; image.src = ASSET(name); preloadCache.set(name, image); });
@@ -551,12 +553,28 @@
       ? ({ hina: 'hina-practice-cg.jpg', mio: 'mio-library-evening-cg.jpg', koharu: 'koharu-studio-cg.jpg' }[girl.id] || 'cover-school.jpg')
       : 'cover-school.jpg';
     const requestedArt = scene.art || defaultSceneArt;
-    const normalizedArt = ({
+    const normalizedArtMap = {
       'hina-portrait.jpg': 'hina-campus-cg.jpg',
       'hina-scene.jpg': 'hina-practice-cg.jpg',
       'mio-portrait.jpg': 'mio-library-evening-cg.jpg',
       'koharu-portrait.jpg': 'koharu-studio-cg.jpg'
-    })[requestedArt] || requestedArt;
+    };
+    let normalizedArt = normalizedArtMap[requestedArt] || requestedArt;
+    // Character-lock: never show Hina's art during Mio/Koharu scenes, even if an old event
+    // or saved state supplied a generic/incorrect image. Keep each heroine in her own CG pool.
+    if (girl && girl.id !== 'hina') {
+      const isHinaOrGenericArt = /hina-|cover-school|classroom-(morning|window)-cg/i.test(normalizedArt);
+      const belongsToOtherGirl = girl.id === 'mio'
+        ? /koharu-/i.test(normalizedArt)
+        : /mio-/i.test(normalizedArt);
+      if (isHinaOrGenericArt || belongsToOtherGirl) {
+        const pool = girl.id === 'mio'
+          ? ['mio-cg-01.jpg','mio-cg-02.jpg','mio-cg-03.jpg','mio-cg-04.jpg','mio-cg-05.jpg','mio-cg-06.jpg','mio-cg-07.jpg','mio-cg-08.jpg','mio-cg-09.jpg','mio-cg-10.jpg']
+          : ['koharu-cg-01.jpg','koharu-cg-02.jpg','koharu-cg-03.jpg','koharu-cg-04.jpg','koharu-cg-05.jpg','koharu-cg-06.jpg','koharu-cg-07.jpg','koharu-cg-08.jpg','koharu-cg-09.jpg','koharu-cg-10.jpg'];
+        const rotation = ((state?.girls?.[girl.id]?.chats || 0) + (state?.girls?.[girl.id]?.gifts || 0) + (state?.girls?.[girl.id]?.dates || 0)) % pool.length;
+        normalizedArt = pool[rotation];
+      }
+    }
     const art = normalizedArt.startsWith('./') ? normalizedArt : ASSET(normalizedArt);
     const isLastLine = scene.index === lines.length - 1;
     const showChoices = isLastLine && !scene.typing && Array.isArray(scene.choices) && scene.choices.length > 0 && !scene.resolved;
@@ -827,8 +845,8 @@
   const SCENE_POOLS = {
     // Every heroine has her own CG pool; never borrow another heroine's image for an event.
     hina: ['hina-practice-cg.jpg', 'hina-court-cg.jpg', 'hina-campus-cg.jpg', 'hina-cafe-cg.jpg', 'hina-evening-cg.jpg', 'hina-sunset-cg.jpg'],
-    mio: ['mio-library-evening-cg.jpg', 'mio-rain-cg.jpg', 'mio-night-cg.jpg', 'mio-library-cg.jpg', 'mio-scene.jpg'],
-    koharu: ['koharu-studio-cg.jpg', 'koharu-stationery-cg.jpg', 'koharu-park-cg.jpg']
+    mio: ['mio-cg-01.jpg', 'mio-cg-02.jpg', 'mio-cg-03.jpg', 'mio-cg-04.jpg', 'mio-cg-05.jpg', 'mio-cg-06.jpg', 'mio-cg-07.jpg', 'mio-cg-08.jpg', 'mio-cg-09.jpg', 'mio-cg-10.jpg'],
+    koharu: ['koharu-cg-01.jpg', 'koharu-cg-02.jpg', 'koharu-cg-03.jpg', 'koharu-cg-04.jpg', 'koharu-cg-05.jpg', 'koharu-cg-06.jpg', 'koharu-cg-07.jpg', 'koharu-cg-08.jpg', 'koharu-cg-09.jpg', 'koharu-cg-10.jpg']
   };
   function nextSceneArt(id, offset = 0) {
     const pool = SCENE_POOLS[id] || ['cover-school.jpg'];
@@ -1032,7 +1050,7 @@
       { id: 'cafe', icon: '🍰', name: '街角咖啡店', price: 50, match: 'koharu', art: 'classroom-window-cg.jpg', lines: '小春選了靠窗的位置，兩人一邊分享甜點，一邊看著人來人往。她偷偷替這個下午畫了一張速寫。' },
       { id: 'campus', icon: '☁️', name: '校園後方看夕陽', price: 20, match: null, art: 'hina-sunset-cg.jpg', lines: '你們走到校園後方，看著天空從淺藍變成淡橙色。平常熟悉的校園，今天好像有點不一樣。' }
     ];
-    showScene({ title: `邀請${girl.short}約會`, kicker: 'A LITTLE DATE', girlId: id, lines: [{ speaker: '旁白', text: `${girl.short}答應和你一起出去。選擇一個地點，讓這段時間留下特別的回憶。` }], choices: places.map((place) => ({
+    showScene({ title: `邀請${girl.short}約會`, kicker: 'A LITTLE DATE', girlId: id, art: nextSceneArt(id, state.girls[id].dates), lines: [{ speaker: '旁白', text: `${girl.short}答應和你一起出去。選擇一個地點，讓這段時間留下特別的回憶。` }], choices: places.map((place) => ({
       label: `${place.icon} ${place.name} · ${place.price} 元`, disabled: state.stats.money < place.price, canChoose: () => state.stats.money >= place.price, disabledMessage: '金錢不足，先去打工吧。',
       effect: () => {
         state.stats.money = Math.max(0, state.stats.money - place.price);

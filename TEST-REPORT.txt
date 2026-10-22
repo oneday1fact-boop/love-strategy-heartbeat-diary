@@ -1,10 +1,5 @@
-《戀愛大作戰：心動日記》V4 測試紀錄
-
-已通過：
-- Node.js JavaScript 語法檢查。
-- 程式內圖片引用掃描：21 個引用均找到對應檔案。
-- Chromium + Playwright 互動測試（嵌入式文件）：首頁載入、建立新遊戲、選擇澪聊天、確認 CG 與小頭像屬於澪、送禮流程與澪的回應。
-- 測試過程無 JavaScript page error 或 Console error。
-- 手機尺寸 390x844 版面 smoke test：未發現水平溢出，三位女主角卡片正常出現。
-
-限制：受執行環境限制，瀏覽器禁止直接導航至本機檔案與 localhost，因此測試使用 Chromium 渲染內嵌 HTML/CSS/JS，並將專案圖片以壓縮 data URI 載入。這不是對已部署 GitHub Pages 網址的完整端到端驗收；上傳後仍建議在實際 GitHub Pages 網址確認一次。
+V5.1 static verification
+- Patched heroine-specific scene art normalization in game.js.
+- JavaScript syntax check: passed (node --check).
+- ZIP asset references: checked for existence.
+- Browser end-to-end interaction test: not performed in this environment.
