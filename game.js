@@ -50,7 +50,7 @@
 
   const MILESTONES = {
     hina: [
-      { key: 'hina_practice', min: 18, day: 2, title: '放學後的最後一球', art: 'hina-court-cg.jpg', lines: [
+      { key: 'hina_practice', min: 18, day: 2, title: '放學後的最後一球', art: 'hina-practice-cg.jpg', lines: [
         ['旁白', '體育館的窗邊染上金色。其他隊員都走了，只有陽菜還抱著球，站在罰球線前。'],
         ['陽菜', '「再投一球就走！」她說得很有精神，卻悄悄揉了揉有點酸的手腕。'],
         ['陽菜', '「……你可以幫我數球嗎？只要你在旁邊，我就覺得一定能投進。」']
@@ -58,7 +58,7 @@
         { label: '認真替她數球，陪她練到最後', effect: () => changeAffinity('hina', 5), outcome: '陽菜投進最後一球，開心地向你擊掌。她把這份一起努力的回憶收在心裡。' },
         { label: '提醒她休息，明天再繼續', effect: () => { changeAffinity('hina', 4); adjustStat('charm', 1); }, outcome: '陽菜先是愣了一下，之後才笑著點頭。「你有時比教練還嚴格呢。」' }
       ] },
-      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'hina-campus-cg.jpg', lines: [
+      { key: 'hina_secret', min: 35, day: 7, title: '不想被看見的失落', art: 'hina-cafe-cg.jpg', lines: [
         ['旁白', '練習賽結束後，陽菜坐在空蕩蕩的看台上。她沒有像平常一樣大聲說笑。'],
         ['陽菜', '「我明明練了那麼久，最後還是失誤了。大家都說沒關係，但我自己好不甘心。」'],
         ['陽菜', '她低下頭：「如果有一天我真的做不到，你還會覺得我很厲害嗎？」']
@@ -66,7 +66,7 @@
         { label: '「我欣賞的是努力的你，不只是得分。」', effect: () => { changeAffinity('hina', 6); adjustStat('courage', 1); }, outcome: '陽菜沉默了一會，眼角微微泛紅。然後她抬起頭，露出比平常更真誠的笑容。' },
         { label: '邀請她明天一起重新練習', effect: () => { changeAffinity('hina', 5); adjustStat('fitness', 1); }, outcome: '「好！明天一定要把那球投進！」陽菜重新站起來，這次她不再是一個人。' }
       ] },
-      { key: 'hina_festival', min: 55, day: 14, title: '夕陽下的加油聲', art: 'hina-sunset-cg.jpg', lines: [
+      { key: 'hina_festival', min: 55, day: 14, title: '夕陽下的加油聲', art: 'hina-evening-cg.jpg', lines: [
         ['旁白', '夏季比賽前一天，陽菜約你到球場旁的走廊。夕陽把兩人的影子拉得很長。'],
         ['陽菜', '「我其實有點緊張。明明一直說自己沒問題，但今天特別想聽你說一句加油。」'],
         ['陽菜', '她把一瓶運動飲品遞給你：「比賽完……我有件事想好好跟你說。」']
@@ -74,7 +74,7 @@
         { label: '約定比賽結束後一起看夕陽', effect: () => { changeAffinity('hina', 7); adjustStat('courage', 2); }, outcome: '陽菜用力點頭，耳尖卻悄悄紅了。這個約定，比任何得分都更令她期待。' },
         { label: '輕輕替她打氣，讓她做自己', effect: () => changeAffinity('hina', 6), outcome: '「嗯，我會努力享受比賽的。」她把你的話牢牢記住，轉身時一直帶著笑。' }
       ] },
-      { key: 'hina_confession', min: 75, day: 20, title: '只想讓你知道', art: 'classroom-morning-cg.jpg', lines: [
+      { key: 'hina_confession', min: 75, day: 20, title: '只想讓你知道', art: 'hina-evening-cg.jpg', lines: [
         ['陽菜', '「比起站在球場正中央，我發現自己最近更期待放學後見到你。」'],
         ['陽菜', '她把目光移向窗外：「我未必已經準備好說出所有答案，但我想讓你知道，你對我真的很重要。」']
       ], choices: [
@@ -83,7 +83,7 @@
       ] }
     ],
     mio: [
-      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'mio-scene.jpg', lines: [
+      { key: 'mio_practice', min: 18, day: 2, title: '清晨的羽毛球場', art: 'mio-library-evening-cg.jpg', lines: [
         ['旁白', '清晨的體育館還沒開足燈，澪已經完成了一輪發球練習。她看到你時，手上的球拍停了一下。'],
         ['澪', '「你真的來了。我以為昨天只是隨口一提……謝謝。」'],
         ['澪', '她把備用球拍遞給你：「要不要試一下？我可以慢慢教你。」']
@@ -91,7 +91,7 @@
         { label: '認真學她示範的動作', effect: () => { changeAffinity('mio', 5); adjustStat('fitness', 1); }, outcome: '澪仔細替你調整握拍姿勢。她話不多，但每一次提醒都很溫柔。' },
         { label: '先問她自己最喜歡哪個動作', effect: () => { changeAffinity('mio', 4); adjustStat('charm', 1); }, outcome: '澪難得主動示範了好幾次。她似乎很高興，你在意的不只是一場比賽。' }
       ] },
-      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'mio-library-cg.jpg', lines: [
+      { key: 'mio_secret', min: 35, day: 7, title: '窗邊的空位', art: 'mio-rain-cg.jpg', lines: [
         ['旁白', '圖書館午後很安靜。澪把一本筆記推到你面前，頁邊整齊地寫滿了重點。'],
         ['澪', '「我習慣把想不通的事情寫下來。可是有些事……寫了很多遍，還是沒有答案。」'],
         ['澪', '她小聲補充：「例如，為什麼我每次看到你走進來，都會先抬頭。」']
@@ -99,7 +99,7 @@
         { label: '笑著說，因為她一直在等你', effect: () => { changeAffinity('mio', 6); adjustStat('courage', 1); }, outcome: '澪的臉一下子紅了。她低頭翻頁，卻把那一頁看了好久都沒有翻過去。' },
         { label: '告訴她，你也會留意她在不在', effect: () => { changeAffinity('mio', 6); adjustStat('charm', 1); }, outcome: '澪輕輕點頭，唇邊露出幾乎看不見、卻很真實的微笑。' }
       ] },
-      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'classroom-window-cg.jpg', lines: [
+      { key: 'mio_festival', min: 55, day: 14, title: '雨天共傘', art: 'mio-night-cg.jpg', lines: [
         ['旁白', '放學時突然下起雨。澪撐開一把透明雨傘，站在校門口等你。'],
         ['澪', '「天氣預報說會下雨。我想……你可能沒有帶傘。」'],
         ['澪', '兩人肩膀靠得很近。她望著雨滴，輕聲說：「和你一起走的路，好像總是比平常短。」']
@@ -107,7 +107,7 @@
         { label: '把傘柄握得更穩，陪她慢慢走', effect: () => { changeAffinity('mio', 7); adjustStat('courage', 1); }, outcome: '澪沒有退開。回到家後，你收到她的訊息：「今天的雨聲很好聽。謝謝你一起走。」' },
         { label: '問她夏日祭典想看哪一種煙花', effect: () => changeAffinity('mio', 6), outcome: '澪想了一會，說自己想看藍色的煙花。說完後，她小聲問你那天有沒有空。' }
       ] },
-      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'classroom-morning-cg.jpg', lines: [
+      { key: 'mio_confession', min: 75, day: 20, title: '安靜裡的答案', art: 'mio-night-cg.jpg', lines: [
         ['澪', '「以前我覺得，只要把事情做好，就不需要向別人說太多。」'],
         ['澪', '「可是最近，我會想把看到的天空、聽到的歌，還有每天很普通的小事，第一個告訴你。」']
       ], choices: [
@@ -116,7 +116,7 @@
       ] }
     ],
     koharu: [
-      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'koharu-scene.jpg', lines: [
+      { key: 'koharu_practice', min: 18, day: 2, title: '美術室的秘密', art: 'koharu-studio-cg.jpg', lines: [
         ['旁白', '美術室裡只剩下畫筆碰到紙面的細聲。小春急忙把畫簿合上，像是被你看見了秘密。'],
         ['小春', '「啊……不是不想給你看，只是還沒有畫好。」'],
         ['小春', '她想了一會，終於把畫簿轉向你：「如果你願意的話，可以先看一小部分。」']
@@ -124,7 +124,7 @@
         { label: '仔細看畫，說出你最喜歡的細節', effect: () => { changeAffinity('koharu', 5); adjustStat('charm', 1); }, outcome: '小春聽得很專注。你指出的一個小細節，正好是她最在意、卻以為不會有人留意的地方。' },
         { label: '問她畫這幅畫時在想甚麼', effect: () => { changeAffinity('koharu', 5); adjustStat('courage', 1); }, outcome: '小春慢慢說起畫中的故事。她發現，你想了解的不只是完成的作品，還有她的心情。' }
       ] },
-      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'classroom-window-cg.jpg', lines: [
+      { key: 'koharu_secret', min: 35, day: 7, title: '沒畫完的天空', art: 'koharu-stationery-cg.jpg', lines: [
         ['旁白', '小春邀請你到校園後方找繪畫素材。她一直望著天空，卻遲遲沒有落筆。'],
         ['小春', '「我總覺得，如果畫得不夠好，就不應該讓別人看見。」'],
         ['小春', '「但每次跟你一起找風景時，我都會想……也許不完美的東西，也值得被喜歡。」']
@@ -132,7 +132,7 @@
         { label: '告訴她，你最喜歡畫裡真實的心情', effect: () => { changeAffinity('koharu', 6); adjustStat('charm', 1); }, outcome: '小春終於開始畫下第一筆。她把這張畫命名為「有人一起看的天空」。' },
         { label: '提議兩個人一起完成這張畫', effect: () => { changeAffinity('koharu', 6); adjustStat('courage', 1); }, outcome: '小春把另一支鉛筆遞給你。兩種筆觸在紙上交會，意外地成為她最喜歡的一部分。' }
       ] },
-      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'classroom-morning-cg.jpg', lines: [
+      { key: 'koharu_festival', min: 55, day: 14, title: '給你的第一張畫', art: 'koharu-park-cg.jpg', lines: [
         ['旁白', '祭典前夕，小春把一幅用淡藍和粉橙色描繪的夕陽交給你。畫裡有一個模糊的身影，正站在她旁邊。'],
         ['小春', '「我本來想畫得很像，但畫到最後，最清楚的反而是那天的感覺。」'],
         ['小春', '「如果你不介意……我想把這幅畫送給你。」']
@@ -140,7 +140,7 @@
         { label: '珍惜地收下，答應會一直保存', effect: () => { changeAffinity('koharu', 7); adjustStat('courage', 1); }, outcome: '小春的笑容像畫裡的夕陽一樣柔和。她說，祭典當天還有一件事想讓你知道。' },
         { label: '邀請她一起去看真正的夕陽', effect: () => changeAffinity('koharu', 6), outcome: '小春輕輕點頭，已經開始想像那天要帶哪一本畫簿。' }
       ] },
-      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'cover-school.jpg', lines: [
+      { key: 'koharu_confession', min: 75, day: 20, title: '畫裡一直有你', art: 'koharu-park-cg.jpg', lines: [
         ['小春', '「我重新翻看最近畫的每一張畫，才發現你總是在某個角落。」'],
         ['小春', '「我想，這大概就是喜歡一個人的樣子吧。無論在甚麼地方，都會不自覺想起他。」']
       ], choices: [
@@ -153,7 +153,10 @@
   // Preload all in-game CGs. Fixed geometry + cached images prevents layout jumps on scene changes.
   const PRELOAD_ASSETS = [
     'cover-school.jpg','hina-portrait.jpg','hina-scene.jpg','hina-court-cg.jpg','hina-campus-cg.jpg','hina-sunset-cg.jpg',
-    'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','koharu-portrait.jpg','koharu-scene.jpg','classroom-morning-cg.jpg','classroom-window-cg.jpg','hina-campus-cg.jpg','hina-sunset-cg.jpg'
+    'hina-practice-cg.jpg','hina-cafe-cg.jpg','hina-evening-cg.jpg',
+    'mio-portrait.jpg','mio-scene.jpg','mio-library-cg.jpg','mio-library-evening-cg.jpg','mio-rain-cg.jpg','mio-night-cg.jpg',
+    'koharu-portrait.jpg','koharu-scene.jpg','koharu-studio-cg.jpg','koharu-stationery-cg.jpg','koharu-park-cg.jpg',
+    'classroom-morning-cg.jpg','classroom-window-cg.jpg','hina-court-cg.jpg'
   ];
   const preloadCache = new Map();
   PRELOAD_ASSETS.forEach((name) => { const image = new Image(); image.decoding = 'async'; image.src = ASSET(name); preloadCache.set(name, image); });
@@ -467,7 +470,15 @@
         <article class="illustration-card"><div class="art-frame portrait-frame" style="--art-bg:url('${ASSET('koharu-portrait.jpg')}')"><img src="${ASSET('koharu-portrait.jpg')}" alt="藤宮小春・原始角色立繪" loading="lazy"></div><div class="art-caption"><strong>藤宮小春・把天空畫下來</strong><span>溫柔的美術少女，想把珍惜的風景分享給你。</span></div></article>
         <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('hina-scene.jpg')}')"><img src="${ASSET('hina-scene.jpg')}" alt="陽菜的原始體育館插畫裁圖" loading="lazy"></div><div class="art-caption"><strong>放學後的最後一球</strong><span>一同練習的時光，慢慢成為只屬於你們的回憶。</span></div></article>
         <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('mio-scene.jpg')}')"><img src="${ASSET('mio-scene.jpg')}" alt="澪的原始圖書館插畫裁圖" loading="lazy"></div><div class="art-caption"><strong>圖書館靠窗的午後</strong><span>不需要急著說話，也能感受到彼此的陪伴。</span></div></article>
-        <article class="illustration-card"><div class="art-frame portrait-frame koharu-close-frame" style="--art-bg:url('${ASSET('koharu-scene.jpg')}')"><img src="${ASSET('koharu-scene.jpg')}" alt="小春的原始立繪近景裁圖" loading="lazy"></div><div class="art-caption"><strong>美術室的秘密</strong><span>把日常一點一滴畫下來，也把在意的人放進畫裡。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('hina-practice-cg.jpg')}')"><img src="${ASSET('hina-practice-cg.jpg')}" alt="陽菜・籃球練習" loading="lazy"></div><div class="art-caption"><strong>陽菜・籃球練習</strong><span>球場上的笑容，來自一起努力的每一刻。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('hina-cafe-cg.jpg')}')"><img src="${ASSET('hina-cafe-cg.jpg')}" alt="陽菜・練習後的飲料" loading="lazy"></div><div class="art-caption"><strong>陽菜・練習後的飲料</strong><span>她把平常的小事，也變成想和你分享的回憶。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('hina-evening-cg.jpg')}')"><img src="${ASSET('hina-evening-cg.jpg')}" alt="陽菜・黃昏約定" loading="lazy"></div><div class="art-caption"><strong>陽菜・黃昏約定</strong><span>比賽前的夕陽，藏著一點點勇氣。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('mio-library-evening-cg.jpg')}')"><img src="${ASSET('mio-library-evening-cg.jpg')}" alt="澪・圖書館午後" loading="lazy"></div><div class="art-caption"><strong>澪・圖書館午後</strong><span>安靜的陪伴，也能成為珍貴的心動。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('mio-rain-cg.jpg')}')"><img src="${ASSET('mio-rain-cg.jpg')}" alt="澪・雨天的相遇" loading="lazy"></div><div class="art-caption"><strong>澪・雨天的相遇</strong><span>有些話，總是在雨聲裡比較容易說出口。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('mio-night-cg.jpg')}')"><img src="${ASSET('mio-night-cg.jpg')}" alt="澪・夜色散步" loading="lazy"></div><div class="art-caption"><strong>澪・夜色散步</strong><span>夜色裡，她終於願意多說一點心事。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('koharu-studio-cg.jpg')}')"><img src="${ASSET('koharu-studio-cg.jpg')}" alt="小春・美術室創作" loading="lazy"></div><div class="art-caption"><strong>小春・美術室創作</strong><span>把最喜歡的顏色，畫成想分享給你的風景。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('koharu-stationery-cg.jpg')}')"><img src="${ASSET('koharu-stationery-cg.jpg')}" alt="小春・文具店挑選畫具" loading="lazy"></div><div class="art-caption"><strong>小春・挑選畫具</strong><span>她開始想像下一幅畫，會不會有你一起入鏡。</span></div></article>
+        <article class="illustration-card"><div class="art-frame scene-frame" style="--art-bg:url('${ASSET('koharu-park-cg.jpg')}')"><img src="${ASSET('koharu-park-cg.jpg')}" alt="小春・櫻花公園寫生" loading="lazy"></div><div class="art-caption"><strong>小春・櫻花公園寫生</strong><span>春天的風景裡，藏著她想留給你的訊息。</span></div></article>
       </div><div class="divider"></div><div class="section-heading"><div><span class="eyebrow">ENDING COLLECTION</span><h2>結局收藏</h2></div><p>達成條件後，這裡會記錄已解鎖結局。</p></div><div class="ending-grid">${Object.entries(ENDINGS).map(([id, ending]) => { const unlocked = state.unlockedEndings.includes(id); return `<article class="ending-card ${unlocked ? 'unlocked' : ''}"><strong>${unlocked ? '✦ ' : '🔒 '}${unlocked ? ending.title : '未解鎖的回憶'}</strong><small>${unlocked ? `${ending.type}<br>${ending.desc}` : ending.desc.slice(0, 42) + '……'}</small></article>`; }).join('')}</div></div>`;
   }
 
@@ -537,14 +548,14 @@
     // A missing scene image must never fall back to a tall character portrait as a full-screen CG.
     // Use a wide landscape scene for each heroine; the portrait is only used in the small nameplate.
     const defaultSceneArt = girl
-      ? ({ hina: 'hina-campus-cg.jpg', mio: 'mio-library-cg.jpg', koharu: 'koharu-scene.jpg' }[girl.id] || 'cover-school.jpg')
+      ? ({ hina: 'hina-practice-cg.jpg', mio: 'mio-library-evening-cg.jpg', koharu: 'koharu-studio-cg.jpg' }[girl.id] || 'cover-school.jpg')
       : 'cover-school.jpg';
     const requestedArt = scene.art || defaultSceneArt;
     const normalizedArt = ({
       'hina-portrait.jpg': 'hina-campus-cg.jpg',
-      'hina-scene.jpg': 'hina-campus-cg.jpg',
-      'mio-portrait.jpg': 'mio-library-cg.jpg',
-      'koharu-portrait.jpg': 'koharu-scene.jpg'
+      'hina-scene.jpg': 'hina-practice-cg.jpg',
+      'mio-portrait.jpg': 'mio-library-evening-cg.jpg',
+      'koharu-portrait.jpg': 'koharu-studio-cg.jpg'
     })[requestedArt] || requestedArt;
     const art = normalizedArt.startsWith('./') ? normalizedArt : ASSET(normalizedArt);
     const isLastLine = scene.index === lines.length - 1;
@@ -814,9 +825,10 @@
 
   // Each heroine has a curated scene pool; every interaction rotates the CG instead of reusing one image.
   const SCENE_POOLS = {
-    hina: ['hina-court-cg.jpg', 'hina-campus-cg.jpg', 'hina-sunset-cg.jpg', 'classroom-morning-cg.jpg'],
-    mio: ['mio-scene.jpg', 'mio-library-cg.jpg', 'classroom-window-cg.jpg', 'classroom-morning-cg.jpg'],
-    koharu: ['koharu-scene.jpg', 'classroom-window-cg.jpg', 'classroom-morning-cg.jpg', 'cover-school.jpg']
+    // Every heroine has her own CG pool; never borrow another heroine's image for an event.
+    hina: ['hina-practice-cg.jpg', 'hina-court-cg.jpg', 'hina-campus-cg.jpg', 'hina-cafe-cg.jpg', 'hina-evening-cg.jpg', 'hina-sunset-cg.jpg'],
+    mio: ['mio-library-evening-cg.jpg', 'mio-rain-cg.jpg', 'mio-night-cg.jpg', 'mio-library-cg.jpg', 'mio-scene.jpg'],
+    koharu: ['koharu-studio-cg.jpg', 'koharu-stationery-cg.jpg', 'koharu-park-cg.jpg']
   };
   function nextSceneArt(id, offset = 0) {
     const pool = SCENE_POOLS[id] || ['cover-school.jpg'];
@@ -830,6 +842,7 @@
     if (state.stats.stamina < 8) { showToast('體力不足，先休息一下再聊天吧。'); return; }
     const girl = GIRLS[id];
     state.selectedGirl = id;
+    selectedMessageGirl = id;
     const count = state.girls[id].chats;
     const scripts = {
       hina: [
@@ -840,6 +853,14 @@
         [
           ['陽菜', '「我本來以為自己最喜歡贏球。後來發現，原來有人願意聽我講那些很小的事，也很開心。」'],
           ['陽菜', '她把球輕輕拋到你手上：「所以，今日換你講吧。最近有沒有甚麼期待的事？」']
+        ],
+        [
+          ['旁白', '陽菜把兩瓶運動飲品放到長椅上，猶豫了半秒，將其中一瓶推到你面前。'],
+          ['陽菜', '「我記得你上次說過喜歡這個味道。其實……我有把你講過的小事放在心上啦。」']
+        ],
+        [
+          ['陽菜', '「下星期有一場重要練習賽，我有點緊張。」'],
+          ['陽菜', '她深吸一口氣，又笑了：「如果你能來看，我就會把它當成最重要的主場！」']
         ]
       ],
       mio: [
@@ -850,6 +871,14 @@
         [
           ['澪', '「我以前覺得，一天最好的時間就是所有事情都完成的時候。」'],
           ['澪', '她望向窗外：「現在好像多了一個例外。就是明明沒有特別的事，也會期待見到某個人。」']
+        ],
+        [
+          ['旁白', '澪把一本薄薄的詩集放到桌上，書頁間夾著一張小小的書籤。'],
+          ['澪', '「這一頁我很喜歡。以前總覺得很難解釋，今天卻突然想讀給你聽。」']
+        ],
+        [
+          ['澪', '「昨晚下雨，我聽了很久。」'],
+          ['澪', '她輕輕轉著杯子：「我本來想傳訊息給你，問你有沒有聽見。最後還是等到今天，想親口問。」']
         ]
       ],
       koharu: [
@@ -860,6 +889,14 @@
         [
           ['小春', '「畫畫的時候，我會把不敢直接說的話放進顏色裡。」'],
           ['小春', '她微微笑了：「不過跟你聊天的時候，好像不用每件事都畫出來，也能被理解。」']
+        ],
+        [
+          ['旁白', '小春把幾張速寫攤在桌上，裡面有操場、校門口和一片被風吹起的櫻花。'],
+          ['小春', '「我發現自己最近很常畫到同一個背影……你猜猜看，為甚麼？」']
+        ],
+        [
+          ['小春', '「我今天試了新的顏色，畫出來的天空跟平常完全不一樣。」'],
+          ['小春', '她把畫紙遞給你：「我想把這種心情分享給你。因為想到你時，顏色好像也會變得柔和。」']
         ]
       ]
     };
@@ -914,6 +951,7 @@
   function openGiftItemPicker(id) {
     const girl = GIRLS[id];
     state.selectedGirl = id;
+    selectedMessageGirl = id;
     const gifts = [
       { id: 'drink', label: '運動飲品', price: 45, match: 'hina', emoji: '🥤', desc: '清爽、實用的小心意。', art: 'hina-court-cg.jpg' },
       { id: 'milk', label: '熱牛奶', price: 40, match: 'mio', emoji: '🥛', desc: '適合安靜午後的溫暖。', art: 'mio-library-cg.jpg' },
@@ -935,14 +973,37 @@
           state.inventory.push(gift.label);
           state.lastAction = `送給${girl.short}${gift.label}`;
           pushDiary(`送給${girl.short}的小禮物`, `你花了 ${gift.price} 元，送給${girl.short}${gift.label}。${match ? '她看起來真的很喜歡。' : '她有禮貌地收下，也感謝你的心意。'}`, '禮物');
-          state._giftSent = { id, gift: gift.label, match, art: gift.art };
+          state._giftSent = { id, gift: gift.label, giftId: gift.id, match, art: nextSceneArt(id, state.girls[id].gifts) };
           state.selectedGirl = id;
           advanceTurn(true);
         },
         outcome: () => {
           const sent = state._giftSent;
-          if (sent && sent.art && activeScene) activeScene.art = sent.art;
-          return sent ? (sent.match ? (sent.gift === '運動飲品' ? `陽菜接過運動飲品，立刻笑著說：「正好練習完口渴！下次比賽後也陪我去買一瓶，好不好？」` : sent.gift === '熱牛奶' ? `澪用雙手捧住熱牛奶，輕聲說：「你記得我喜歡暖一點的……今晚讀書時，我會想起這一刻。」` : sent.gift === '素描本' ? `小春翻開素描本，眼睛亮了起來：「第一頁想畫今天的你，可以嗎？這本我一定會好好保存。」` : `${girl.short}開心地和你分享甜點：「下次也一起來吧，我想把這家店推薦給你。」`) : `${girl.short}微笑著接過${sent.gift}：「謝謝你想到我。雖然不是我平常最常選的東西，但我會記住這份心意。」`) : '你們交換了一個微笑。'
+          if (sent && activeScene) { activeScene.girlId = sent.id; activeScene.art = sent.art || nextSceneArt(sent.id, state.girls[sent.id].gifts); }
+          if (!sent) return '你們交換了一個微笑。';
+          const reactions = {
+            hina: [
+              `陽菜把${sent.gift}抱在胸前，眼睛亮了起來：「你竟然特地挑給我！下次練習完，我也要請你喝飲料！」`,
+              `陽菜笑著把禮物收好：「我會好好珍惜的。下次比賽，你一定要坐在看台最前面喔！」`,
+              `陽菜有點不好意思地別開視線：「收到你的禮物，比我投進決勝球還開心……這句不准告訴隊友！」`,
+              `陽菜輕輕碰了碰禮物：「我想把今天記下來。下次換我準備一份驚喜給你！」`
+            ],
+            mio: [
+              `澪用雙手接過${sent.gift}，輕聲說：「你還記得我提過這個……謝謝，我真的很喜歡。」`,
+              `澪低頭看著禮物，嘴角露出淡淡的笑：「我本來想等回家再拆，但……可以和你一起看嗎？」`,
+              `澪小心地把${sent.gift}收進袋裡：「今天讀書時，我大概會一直想起這份心意。」`,
+              `澪的耳尖微微泛紅：「我不太擅長收禮物，不過如果是你送的，我想慢慢學會怎樣好好回應。」`
+            ],
+            koharu: [
+              `小春翻看著${sent.gift}，眼睛亮了起來：「我已經想到可以怎樣用了！第一個想法想先畫給你看。」`,
+              `小春把禮物放在畫簿旁邊：「這樣一來，今天也有值得記住的顏色了。謝謝你。」`,
+              `小春笑著問：「下次可以陪我一起用這個嗎？我想把那一天也畫進手帳裡。」`,
+              `小春把禮物小心收好：「我會珍惜的。其實，比起禮物本身，我更開心你記得我。」`
+            ]
+          };
+          const pool = reactions[sent.id] || reactions.hina;
+          const reaction = pool[(Math.max(1, state.girls[sent.id].gifts) - 1) % pool.length];
+          return sent.match ? reaction : `${girl.short}微笑著接過${sent.gift}：「謝謝你想到我。這份心意我會好好收下，也想多了解你為甚麼會選它。」`;
         }
       })),
       onClose: () => { state._giftSent = null; afterAction(); }
@@ -964,6 +1025,7 @@
   function openDateLocationPicker(id) {
     const girl = GIRLS[id];
     state.selectedGirl = id;
+    selectedMessageGirl = id;
     const places = [
       { id: 'park', icon: '🌳', name: '河畔公園', price: 40, match: 'hina', art: 'hina-campus-cg.jpg', lines: '你們沿著河畔散步，聊到各自希望在夏天完成的事。風吹過樹梢，陽菜似乎比平日更放鬆。' },
       { id: 'bookstore', icon: '📚', name: '獨立書店', price: 40, match: 'mio', art: 'mio-library-cg.jpg', lines: '你們在書架之間慢慢走。澪把一本自己喜歡的書交給你，說想知道你看完後的想法。' },
@@ -978,7 +1040,7 @@
         changeAffinity(id, match ? 10 : 6);
         adjustStat('charm', 1);
         state.girls[id].dates += 1;
-        state._dateResult = { girl: id, place: place.name, text: place.lines, match, art: place.art };
+        state._dateResult = { girl: id, place: place.name, text: `${girl.short}和你${place.name === '獨立書店' ? '慢慢走過書架，分享最近想看的故事。' : place.name === '街角咖啡店' ? '坐在靠窗的位置分享甜點，也聊起各自喜歡的風景。' : place.name === '河畔公園' ? '沿著河畔散步，聊到各自希望在夏天完成的事。' : '並肩看著天空從淺藍變成淡橙色，聊起最近的小心事。'}`, match, art: nextSceneArt(id, state.girls[id].dates) };
         state.selectedGirl = id;
         pushDiary(`與${girl.short}的約會`, `你和${girl.short}去了${place.name}。${place.lines}`, '約會');
         addMessage(id, id, `今天去了${place.name}，我覺得很開心。下次也一起出去吧。`);
@@ -1001,7 +1063,7 @@ ${girl.short}很享受這段時間。只要是一起度過的普通日子，也�
     const girl = GIRLS[id];
     if (state.day < 15 || state.girls[id].affinity < 70) { showToast('先多一點相處與回憶吧。建議第 15 天後、好感度 70 以上再考慮告白。'); return; }
     showScene({
-      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: (id === 'hina' ? ASSET('hina-sunset-cg.jpg') : id === 'mio' ? ASSET('mio-library-cg.jpg') : ASSET('koharu-scene.jpg')),
+      title: `給${girl.short}的答案`, kicker: 'A HEARTBEAT DECISION', girlId: id, art: ASSET(nextSceneArt(id, state.girls[id].dates + state.girls[id].gifts)),
       lines: [
         { speaker: '旁白', text: `黃昏的校園漸漸安靜。你和${girl.short}並肩站在熟悉的地方，最近累積的每一段回憶都浮上心頭。` },
         { speaker: girl.short, text: id === 'hina' ? '「我想知道……對你來說，我是不是也有一點特別？」' : id === 'mio' ? '「如果我說，最近最期待的事情是見到你……你會怎樣回答？」' : '「我畫了很多風景，但每一次回看，總覺得少了你就不完整。」' },
@@ -1219,8 +1281,8 @@ ${girl.intro}
       }
       case 'go-tab': state.tab = target.dataset.tab; if (state.tab === 'messages') selectedMessageGirl = selectedMessageGirl || 'hina'; saveGame(); renderGameFrame(); break;
       case 'act': act(target.dataset.key); break;
-      case 'select-girl': state.selectedGirl = target.dataset.girl; renderGameFrame(); break;
-      case 'view-profile': state.selectedGirl = target.dataset.girl; state.tab = 'characters'; renderGameFrame(); break;
+      case 'select-girl': state.selectedGirl = target.dataset.girl; selectedMessageGirl = target.dataset.girl; renderGameFrame(); break;
+      case 'view-profile': state.selectedGirl = target.dataset.girl; selectedMessageGirl = target.dataset.girl; state.tab = 'characters'; renderGameFrame(); break;
       case 'start-chat': startChat(target.dataset.girl); break;
       case 'give-gift': openGiftPicker(target.dataset.girl); break;
       case 'start-date': openDatePicker(target.dataset.girl); break;
